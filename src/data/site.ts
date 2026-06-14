@@ -92,3 +92,138 @@ export const nav = {
     { label: "Patrocinar", slug: "sponsor" },
   ],
 } satisfies Record<Locale, Array<{ label: string; slug: RouteSlug }>>;
+
+export const seoContent = {
+  "": {
+    title: "Encrypted, recoverable archives for long-term storage",
+    body:
+      "tzap is built for private archives that need to remain understandable and restorable years after they were created. The format combines compression, authenticated encryption, manifest integrity checks, split-volume layouts, and recovery data so backups, source records, media sets, and research datasets can be stored with fewer fragile assumptions.",
+    items: [
+      {
+        title: "Encrypted archive metadata",
+        body:
+          "Archive contents, file names, metadata, indexes, and payloads can be protected instead of leaving sensitive structure exposed.",
+      },
+      {
+        title: "Recoverable split volumes",
+        body:
+          "Archives can be divided for cloud objects, removable drives, discs, and offline media while retaining recovery options for damaged or missing pieces.",
+      },
+      {
+        title: "Random-access restores",
+        body:
+          "Large archives can be listed, verified, and restored selectively without turning every recovery into an all-or-nothing extraction.",
+      },
+    ],
+  },
+  download: {
+    title: "Install tzap on developer machines and backup hosts",
+    body:
+      "The tzap CLI can be installed with Cargo, packaged binaries, Homebrew, or a source build. These installation paths support local testing, automated backup jobs, reproducible archive workflows, and cross-platform validation for teams evaluating a modern encrypted archive format.",
+    items: [
+      {
+        title: "Cargo install",
+        body:
+          "Use the Rust package ecosystem for a quick install path on systems that already have a recent Rust toolchain.",
+      },
+      {
+        title: "Packaged releases",
+        body:
+          "Use GitHub Releases or Homebrew when you want prebuilt artifacts, checksums, and release notes for operational installs.",
+      },
+      {
+        title: "Source builds",
+        body:
+          "Build from source when contributing, auditing behavior, testing format compatibility, or validating a specific revision.",
+      },
+    ],
+  },
+  docs: {
+    title: "Command workflows for encrypted archive operations",
+    body:
+      "The documentation focuses on practical command-line flows: creating archives, keeping passphrases out of shell history, listing and verifying archive integrity, extracting complete archives, restoring one file, and testing split-volume recovery behavior.",
+    items: [
+      {
+        title: "Create and verify backups",
+        body:
+          "Use stdin-based passphrase handling, authenticated manifests, and verification commands to make backup runs easier to audit.",
+      },
+      {
+        title: "Inspect and restore selectively",
+        body:
+          "List encrypted archives and restore individual paths when you need targeted recovery from large datasets.",
+      },
+      {
+        title: "Test damaged-volume recovery",
+        body:
+          "Create multi-volume archives with loss tolerance so backup media and object-storage layouts can be tested before they are needed.",
+      },
+    ],
+  },
+  spec: {
+    title: "Public archive format for implementers and reviewers",
+    body:
+      "The tzap specification documents the archive layout for independent review and compatible implementations. It describes the format contract behind encrypted metadata, authenticated payloads, indexes, trailers, split volumes, and recovery behavior.",
+    items: [
+      {
+        title: "Format transparency",
+        body:
+          "The public specification gives implementers a stable place to inspect decisions and compare behavior against the Rust reference implementation.",
+      },
+      {
+        title: "Integrity model",
+        body:
+          "Authenticated headers, manifests, indexes, trailers, and payloads are part of the format story rather than a separate wrapper.",
+      },
+      {
+        title: "Recovery model",
+        body:
+          "Split-volume and Reed-Solomon recovery behavior are documented so damaged media cases can be reasoned about and tested.",
+      },
+    ],
+  },
+  zmanager: {
+    title: "Universal archiver with first-class tzap workflows",
+    body:
+      "ZManager CLI is a related open-source archiver for teams and developers who need modern archive creation, broad extraction support, safe extraction defaults, and tzap creation and extraction from one command-line tool.",
+    items: [
+      {
+        title: "Create modern archives",
+        body:
+          "Create ZIP, TAR.ZST, TZAP, and 7z archives from one CLI while keeping secure password handling available.",
+      },
+      {
+        title: "Extract broad formats",
+        body:
+          "Use one extraction surface for desktop archives, developer packages, raw compression formats, and tzap archives.",
+      },
+      {
+        title: "Use safe defaults",
+        body:
+          "Prefer prompts and stdin for secrets and apply extraction checks that reduce common path and overwrite risks.",
+      },
+    ],
+  },
+  sponsor: {
+    title: "Support open archive infrastructure",
+    body:
+      "Sponsorship helps turn tzap from a promising archive format into dependable infrastructure: releases, documentation, packaging, compatibility testing, recovery fixtures, specification work, and maintenance for people storing private data and long-lived backups.",
+    items: [
+      {
+        title: "Release engineering",
+        body:
+          "Fund predictable binaries, checksums, install notes, versioned artifacts, and clearer release communication.",
+      },
+      {
+        title: "Compatibility testing",
+        body:
+          "Support fixtures for damaged volumes, random-access restore paths, large archive behavior, and regression coverage.",
+      },
+      {
+        title: "Specification work",
+        body:
+          "Keep the public format description, implementer notes, examples, and review surface moving with the code.",
+      },
+    ],
+  },
+} satisfies Record<RouteSlug, { title: string; body: string; items: Array<{ title: string; body: string }> }>;

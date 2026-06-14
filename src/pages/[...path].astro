@@ -3,7 +3,17 @@ import CodeBlock from "@/components/CodeBlock.astro";
 import DownloadMethods from "@/components/DownloadMethods.astro";
 import RepoPanel from "@/components/RepoPanel.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { copy, links, locales, localizedPath, routeSlugs, type Locale, type RouteSlug } from "@/data/site";
+import {
+  copy,
+  defaultLocale,
+  links,
+  locales,
+  localizedPath,
+  routeSlugs,
+  seoContent,
+  type Locale,
+  type RouteSlug,
+} from "@/data/site";
 
 interface Props {
   locale: Locale;
@@ -25,6 +35,7 @@ export function getStaticPaths() {
 const { locale, slug } = Astro.props;
 const c = copy[locale];
 const page = slug === "" ? c.home : c[slug];
+const routeSeo = locale === defaultLocale ? seoContent[slug] : undefined;
 ---
 
 <BaseLayout locale={locale} slug={slug} title={page.title} description={page.description}>
@@ -244,5 +255,24 @@ printf '%s\\n' "$TZAP_PASSPHRASE" | tzap extract --password-stdin backup.tzap -C
         </div>
       </section>
     </>
+  )}
+
+  {routeSeo && (
+    <section class="band seo-section" aria-labelledby="seo-section-title">
+      <div class="wrap">
+        <div class="seo-intro">
+          <h2 id="seo-section-title">{routeSeo.title}</h2>
+          <p>{routeSeo.body}</p>
+        </div>
+        <div class="seo-grid">
+          {routeSeo.items.map((item) => (
+            <article class="seo-item">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   )}
 </BaseLayout>

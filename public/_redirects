@@ -1,0 +1,3 @@
+https://www.tzap.org/* https://tzap.org/:splat 301!
+http://www.tzap.org/* https://tzap.org/:splat 301!
+http://tzap.org/* https://tzap.org/:splat 301!

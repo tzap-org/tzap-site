@@ -14,6 +14,108 @@ interface Props {
 const { locale = defaultLocale, slug = "", title, description } = Astro.props;
 const pageTitle = title === copy[locale].titleSuffix ? title : `${title} | ${copy[locale].titleSuffix}`;
 const canonical = new URL(localizedPath(locale, slug), links.site).toString();
+const siteUrl = links.site;
+const siteName = copy[defaultLocale].siteName;
+const organizationId = `${siteUrl}/#organization`;
+const websiteId = `${siteUrl}/#website`;
+const softwareId = `${siteUrl}/#software`;
+const webpageId = `${canonical}#webpage`;
+const breadcrumbId = `${canonical}#breadcrumb`;
+const logoUrl = new URL("/tzap-icon.png", siteUrl).toString();
+const imageUrl = new URL("/og/tzap-og.png", siteUrl).toString();
+const breadcrumbItems = [
+  {
+    "@type": "ListItem",
+    position: 1,
+    name: siteName,
+    item: new URL(localizedPath(locale, ""), siteUrl).toString(),
+  },
+  ...(slug
+    ? [
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: title,
+          item: canonical,
+        },
+      ]
+    : []),
+];
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: siteName,
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: logoUrl,
+      },
+      sameAs: [links.githubOrg, links.tzapRepo, links.openCollective, links.koFi],
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: "tzap",
+      url: siteUrl,
+      publisher: {
+        "@id": organizationId,
+      },
+      inLanguage: defaultLocale,
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": softwareId,
+      name: "tzap",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: ["macOS", "Linux", "Windows"],
+      url: siteUrl,
+      downloadUrl: new URL(localizedPath(defaultLocale, "download"), siteUrl).toString(),
+      codeRepository: links.tzapRepo,
+      license: "https://www.apache.org/licenses/LICENSE-2.0",
+      description: copy[defaultLocale].home.description,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      publisher: {
+        "@id": organizationId,
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": webpageId,
+      url: canonical,
+      name: pageTitle,
+      description,
+      isPartOf: {
+        "@id": websiteId,
+      },
+      about: {
+        "@id": softwareId,
+      },
+      publisher: {
+        "@id": organizationId,
+      },
+      breadcrumb: {
+        "@id": breadcrumbId,
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: imageUrl,
+      },
+      inLanguage: locale,
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": breadcrumbId,
+      itemListElement: breadcrumbItems,
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -31,6 +133,7 @@ const canonical = new URL(localizedPath(locale, slug), links.site).toString();
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL("/og/tzap-og.png", links.site).toString()} />
     <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     {Object.keys(localeLabels).map((lang) => (
       <link
         rel="alternate"

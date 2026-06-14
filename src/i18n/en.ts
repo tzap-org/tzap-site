@@ -1,6 +1,6 @@
 export const en = {
   siteName: "tzap",
-  titleSuffix: "tzap archive format",
+  titleSuffix: "tzap encrypted archive format",
   skip: "Skip to content",
   openSourceNote: "Open format. Rust reference implementation. Apache-2.0.",
   language: "Language",
@@ -11,9 +11,9 @@ export const en = {
     "tzap.org is the public home for the tzap archive format and related open tools.",
   editSite: "Website source",
   home: {
-    title: "tzap archive format",
+    title: "tzap encrypted archive format",
     description:
-      "Fast, encrypted, recoverable archives for serious long-term storage.",
+      "Open-source archive format and Rust CLI for encrypted, recoverable, split-volume long-term storage.",
     eyebrow: "Open archive format",
     subhead:
       "tzap combines Zstandard compression, authenticated encryption, split volumes, and recovery data in one practical format with a Rust reference implementation.",
@@ -50,9 +50,9 @@ export const en = {
     koFiAction: "Sponsor on Ko-fi",
   },
   download: {
-    title: "Download tzap",
+    title: "Download tzap CLI",
     description:
-      "Install tzap from crates.io, Homebrew, GitHub Releases, or source.",
+      "Install the tzap command-line archive tool from crates.io, Homebrew, GitHub Releases, or source.",
     intro:
       "The quickest path is Cargo. GitHub Releases and Homebrew are useful for packaged binaries when available.",
     methods: [
@@ -80,9 +80,9 @@ export const en = {
     releaseButton: "Open GitHub Releases",
   },
   docs: {
-    title: "Documentation",
+    title: "tzap CLI documentation",
     description:
-      "Common tzap workflows for creating, verifying, listing, extracting, and recovering archives.",
+      "Command examples for creating encrypted archives, verifying backups, listing contents, extracting files, and building recoverable volumes with tzap.",
     intro:
       "These examples use passphrase mode through stdin so secrets do not appear in shell history or process listings.",
     sections: [
@@ -115,9 +115,9 @@ export const en = {
     more: "Full CLI reference",
   },
   spec: {
-    title: "Format specification",
+    title: "tzap archive format specification",
     description:
-      "The tzap format is documented publicly for implementers and reviewers.",
+      "Public specification for the tzap encrypted archive format, including authenticated metadata, payloads, split volumes, and recovery behavior.",
     body:
       "The current public specification is v0.43. It is the draft implementation target and supersedes the earlier tzap format drafts.",
     specButton: "Read the current spec",
@@ -131,9 +131,9 @@ export const en = {
     ],
   },
   zmanager: {
-    title: "ZManager CLI",
+    title: "ZManager CLI archiver",
     description:
-      "A related open-source command-line archiver with first-class tzap workflows.",
+      "Open-source universal command-line archiver for ZIP, TAR.ZST, 7z, broad extraction workflows, and first-class tzap archive support.",
     body:
       "ZManager CLI is a practical universal archiver for macOS, Linux, and Windows. It creates modern archives, extracts a broad set of formats safely, and supports .tzap creation and extraction.",
     openBoundary:

@@ -11,12 +11,12 @@ export const links = {
   site: "https://tzap.org",
   githubOrg: "https://github.com/tzap-org",
   siteRepo: "https://github.com/tzap-org/tzap-site",
-  tzapRepo: "https://github.com/frankmanzhu/tzap",
-  tzapReleases: "https://github.com/frankmanzhu/tzap/releases",
+  tzapRepo: "https://github.com/tzap-org/tzap",
+  tzapReleases: "https://github.com/tzap-org/tzap/releases",
   tzapSpec:
-    "https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv43.md",
+    "https://github.com/tzap-org/tzap/blob/main/specs/tzap-format-revisedv43.md",
   tzapCliReference:
-    "https://github.com/frankmanzhu/tzap/blob/main/public-docs/tzap-cli-reference.md",
+    "https://github.com/tzap-org/tzap/blob/main/public-docs/tzap-cli-reference.md",
   zmanagerRepo: "https://github.com/frankmanzhu/zmanager",
   zmanagerReleases: "https://github.com/frankmanzhu/zmanager/releases",
 };
@@ -99,13 +99,13 @@ export const copy = {
         {
           name: "Homebrew",
           command:
-            "brew tap frankmanzhu/tzap https://github.com/frankmanzhu/tzap\nbrew install frankmanzhu/tzap/tzap",
+            "brew tap tzap-org/tzap https://github.com/tzap-org/tzap\nbrew install tzap-org/tzap/tzap",
           note: "Good for macOS and Linuxbrew users.",
         },
         {
           name: "From source",
           command:
-            "git clone https://github.com/frankmanzhu/tzap.git\ncd tzap\ncargo build --release -p tzap",
+            "git clone https://github.com/tzap-org/tzap.git\ncd tzap\ncargo build --release -p tzap",
           note: "Best for contributors and implementers.",
         },
       ],
@@ -234,13 +234,13 @@ export const copy = {
         {
           name: "Homebrew",
           command:
-            "brew tap frankmanzhu/tzap https://github.com/frankmanzhu/tzap\nbrew install frankmanzhu/tzap/tzap",
+            "brew tap tzap-org/tzap https://github.com/tzap-org/tzap\nbrew install tzap-org/tzap/tzap",
           note: "适合 macOS 和 Linuxbrew 用户。",
         },
         {
           name: "从源码构建",
           command:
-            "git clone https://github.com/frankmanzhu/tzap.git\ncd tzap\ncargo build --release -p tzap",
+            "git clone https://github.com/tzap-org/tzap.git\ncd tzap\ncargo build --release -p tzap",
           note: "适合贡献者和格式实现者。",
         },
       ],

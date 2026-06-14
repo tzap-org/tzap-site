@@ -11,9 +11,7 @@ Updated after initial setup:
 - Primary domain: `https://tzap.org`
 - Initial deployment target: Cloudflare Pages
 - First locales: English at `/`, Simplified Chinese at `/zh-Hans/`
-- The `tzap` format repository currently remains at
-  `https://github.com/frankmanzhu/tzap` until transfer-related links and
-  packaging metadata are updated deliberately.
+- The `tzap` format repository now lives at `https://github.com/tzap-org/tzap`.
 
 ## Goal
 
@@ -35,7 +33,7 @@ why it exists, and where to get the source or tools.
 
 Current public repository:
 
-- `https://github.com/frankmanzhu/tzap`
+- `https://github.com/tzap-org/tzap`
 
 Core message:
 
@@ -251,8 +249,8 @@ Content:
 
 Important links:
 
-- `https://github.com/frankmanzhu/tzap/releases`
-- `https://github.com/frankmanzhu/tzap`
+- `https://github.com/tzap-org/tzap/releases`
+- `https://github.com/tzap-org/tzap`
 
 ### `/docs`
 
@@ -292,7 +290,7 @@ Content:
 
 Important links:
 
-- `https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv43.md`
+- `https://github.com/tzap-org/tzap/blob/main/specs/tzap-format-revisedv43.md`
 - Current public spec: v0.43.
 
 ### `/zmanager`
@@ -405,10 +403,10 @@ Suggested entries:
 
 ```ts
 export const links = {
-  tzapRepo: "https://github.com/frankmanzhu/tzap",
-  tzapReleases: "https://github.com/frankmanzhu/tzap/releases",
-  tzapSpec: "https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv43.md",
-  tzapCliReference: "https://github.com/frankmanzhu/tzap/blob/main/public-docs/tzap-cli-reference.md",
+  tzapRepo: "https://github.com/tzap-org/tzap",
+  tzapReleases: "https://github.com/tzap-org/tzap/releases",
+  tzapSpec: "https://github.com/tzap-org/tzap/blob/main/specs/tzap-format-revisedv43.md",
+  tzapCliReference: "https://github.com/tzap-org/tzap/blob/main/public-docs/tzap-cli-reference.md",
   zmanagerRepo: "https://github.com/frankmanzhu/zmanager",
   zmanagerReleases: "https://github.com/frankmanzhu/zmanager/releases",
 };
@@ -449,8 +447,8 @@ cargo install tzap
 ```
 
 ```sh
-brew tap frankmanzhu/tzap https://github.com/frankmanzhu/tzap
-brew install frankmanzhu/tzap/tzap
+brew tap tzap-org/tzap https://github.com/tzap-org/tzap
+brew install tzap-org/tzap/tzap
 ```
 
 ### Quick Start Snippet

@@ -36,9 +36,9 @@ The public website repository is:
 
 - `https://github.com/tzap-org/tzap-site`
 
-The tzap format/reference implementation still currently lives at:
+The tzap format/reference implementation lives at:
 
-- `https://github.com/frankmanzhu/tzap`
+- `https://github.com/tzap-org/tzap`
 
-Transfer `tzap` to `tzap-org/tzap` only after updating install snippets,
-Homebrew tap commands, badges, release URLs, and crate metadata.
+Keep install snippets, Homebrew tap commands, badges, release URLs, and crate
+metadata aligned with this org URL.

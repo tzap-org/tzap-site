@@ -14,7 +14,7 @@ export const links = {
   tzapRepo: "https://github.com/frankmanzhu/tzap",
   tzapReleases: "https://github.com/frankmanzhu/tzap/releases",
   tzapSpec:
-    "https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv36.md",
+    "https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv43.md",
   tzapCliReference:
     "https://github.com/frankmanzhu/tzap/blob/main/public-docs/tzap-cli-reference.md",
   zmanagerRepo: "https://github.com/frankmanzhu/zmanager",
@@ -154,7 +154,7 @@ export const copy = {
       description:
         "The tzap format is documented publicly for implementers and reviewers.",
       body:
-        "The current public README points to the v0.36 format specification. The site should move to v0.37 when that revision becomes the public target.",
+        "The current public specification is v0.43. It is the draft implementation target and supersedes the earlier tzap format drafts.",
       specButton: "Read the current spec",
       repoButton: "Open reference implementation",
       notesTitle: "Implementation notes",
@@ -286,7 +286,7 @@ export const copy = {
       title: "格式规范",
       description: "tzap 格式公开记录，便于实现者和审阅者检查。",
       body:
-        "当前公开 README 指向 v0.36 格式规范。当 v0.37 成为公开目标后，本网站应同步更新。",
+        "当前公开格式规范是 v0.43。它是草案实现目标，并取代早期的 tzap 格式草案。",
       specButton: "阅读当前规范",
       repoButton: "打开参考实现",
       notesTitle: "实现说明",

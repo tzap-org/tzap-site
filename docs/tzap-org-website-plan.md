@@ -292,8 +292,8 @@ Content:
 
 Important links:
 
-- `https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv36.md`
-- Update this to v37 when the public README/spec target changes.
+- `https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv43.md`
+- Current public spec: v0.43.
 
 ### `/zmanager`
 
@@ -407,7 +407,7 @@ Suggested entries:
 export const links = {
   tzapRepo: "https://github.com/frankmanzhu/tzap",
   tzapReleases: "https://github.com/frankmanzhu/tzap/releases",
-  tzapSpec: "https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv36.md",
+  tzapSpec: "https://github.com/frankmanzhu/tzap/blob/main/specs/tzap-format-revisedv43.md",
   tzapCliReference: "https://github.com/frankmanzhu/tzap/blob/main/public-docs/tzap-cli-reference.md",
   zmanagerRepo: "https://github.com/frankmanzhu/zmanager",
   zmanagerReleases: "https://github.com/frankmanzhu/zmanager/releases",
@@ -560,7 +560,8 @@ DNS checklist:
 - Confirm hosting provider: Cloudflare Pages or GitHub Pages.
 - Confirm first translated language: likely `zh-Hans`.
 - Confirm whether to mention the macOS GUI on launch.
-- Confirm whether the current public spec link should be v36 or v37.
+- Confirm whether v0.43 should remain labeled as a draft implementation target
+  on the public site.
 - Confirm whether `tzap.org` should also host downloadable GUI builds later.
 
 ### Phase 1: Site Skeleton
@@ -634,8 +635,8 @@ The first public version is ready when:
 
 ## Open Questions
 
-- Should the homepage say "v0.36" until v37 is fully public, or should the site
-  launch around v37?
+- Should the homepage mention v0.43 directly, or keep the homepage version-free
+  and leave spec versioning to `/spec`?
 - Should the website include a public compatibility matrix from day one?
 - Should ZManager GUI have a public product page, or should the site only
   mention it once downloads are available?

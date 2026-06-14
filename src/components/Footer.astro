@@ -1,0 +1,32 @@
+---
+import { copy, links, localeLabels, localizedPath, type Locale } from "@/data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = copy[locale];
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>tzap.org</strong>
+      <p>{c.footer}</p>
+      <p class="muted">{c.openSourceNote}</p>
+    </div>
+    <div>
+      <strong>{c.source}</strong>
+      <a href={links.tzapRepo}>tzap GitHub</a>
+      <a href={links.zmanagerRepo}>ZManager CLI</a>
+      <a href={links.siteRepo}>{c.editSite}</a>
+    </div>
+    <div>
+      <strong>{c.language}</strong>
+      {Object.entries(localeLabels).map(([lang, label]) => (
+        <a href={localizedPath(lang as Locale, "")}>{label}</a>
+      ))}
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,37 @@
+---
+import { copy, links, localeLabels, localizedPath, nav, type Locale, type RouteSlug } from "@/data/site";
+
+interface Props {
+  locale: Locale;
+  slug: RouteSlug;
+}
+
+const { locale, slug } = Astro.props;
+const c = copy[locale];
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href={localizedPath(locale, "")} aria-label="tzap home">
+      <img src="/tzap-icon.png" alt="" width="40" height="40" />
+      <span>{c.siteName}</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      {nav[locale].map((item) => (
+        <a href={localizedPath(locale, item.slug)}>{item.label}</a>
+      ))}
+      <a href={links.githubOrg}>GitHub</a>
+    </nav>
+    <div class="language-switcher" aria-label={c.language}>
+      {Object.entries(localeLabels).map(([lang, label]) => (
+        <a
+          class:list={["language-link", { active: lang === locale }]}
+          href={localizedPath(lang as Locale, slug)}
+          hreflang={lang}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>

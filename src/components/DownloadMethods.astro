@@ -1,0 +1,27 @@
+---
+import CodeBlock from "@/components/CodeBlock.astro";
+
+interface Method {
+  name: string;
+  command: string;
+  note: string;
+}
+
+interface Props {
+  methods: Method[];
+}
+
+const { methods } = Astro.props;
+---
+
+<div class="method-list">
+  {methods.map((method) => (
+    <section class="method-item">
+      <div>
+        <h2>{method.name}</h2>
+        <p>{method.note}</p>
+      </div>
+      <CodeBlock code={method.command} />
+    </section>
+  ))}
+</div>

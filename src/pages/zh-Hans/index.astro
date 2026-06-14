@@ -1,0 +1,58 @@
+---
+import CodeBlock from "@/components/CodeBlock.astro";
+import RepoPanel from "@/components/RepoPanel.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { copy, links } from "@/data/site";
+
+const locale = "zh-Hans";
+const c = copy[locale];
+---
+
+<BaseLayout locale={locale} slug="" title={c.home.title} description={c.home.description}>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">{c.home.eyebrow}</p>
+      <h1>{c.home.title}</h1>
+      <p class="lede">{c.home.subhead}</p>
+      <div class="button-row">
+        <a class="button" href="/zh-Hans/download/">{c.home.primary}</a>
+        <a class="button secondary" href={links.tzapRepo}>{c.home.secondary}</a>
+        <a class="button ghost" href={links.tzapSpec}>{c.home.tertiary}</a>
+      </div>
+    </div>
+    <div class="install-box" aria-label={c.home.installLabel}>
+      <img class="hero-mark" src="/tzap-icon.png" alt="" width="160" height="160" />
+      <span>{c.home.installLabel}</span>
+      <CodeBlock code={c.home.installCommand} />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two-column">
+      <div>
+        <h2>{c.home.whyTitle}</h2>
+        <p>{c.home.why}</p>
+      </div>
+      <div>
+        <h2>{c.home.featuresTitle}</h2>
+        <ul class="feature-list">
+          {c.home.features.map((feature) => <li>{feature}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap content-section">
+    <h2>{c.home.quickStartTitle}</h2>
+    <CodeBlock code={`export TZAP_PASSPHRASE='correct horse battery staple'
+printf '%s\\n' "$TZAP_PASSPHRASE" | \\
+  tzap create --password-stdin -o backup.tzap ./project
+
+printf '%s\\n' "$TZAP_PASSPHRASE" | tzap verify --password-stdin backup.tzap
+printf '%s\\n' "$TZAP_PASSPHRASE" | tzap extract --password-stdin backup.tzap -C restored`} />
+  </section>
+
+  <div class="wrap">
+    <RepoPanel title={c.home.ecosystemTitle} body={c.home.ecosystem} href={links.zmanagerRepo} action="打开 ZManager CLI" />
+  </div>
+</BaseLayout>

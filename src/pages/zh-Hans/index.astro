@@ -55,4 +55,24 @@ printf '%s\\n' "$TZAP_PASSPHRASE" | tzap extract --password-stdin backup.tzap -C
   <div class="wrap">
     <RepoPanel title={c.home.ecosystemTitle} body={c.home.ecosystem} href={links.zmanagerRepo} action="打开 ZManager CLI" />
   </div>
+
+  <section class="wrap contact-section" aria-labelledby="contact-title">
+    <div class="contact-card">
+      <div>
+        <h2 id="contact-title">{c.home.contactTitle}</h2>
+        <p>{c.home.contactBody}</p>
+      </div>
+      <a class="button secondary" href={`mailto:${links.supportEmail}`}>{c.home.contactAction}</a>
+    </div>
+    <div class="contact-card">
+      <div>
+        <h2>{c.home.sponsorshipTitle}</h2>
+        <p>{c.home.sponsorshipBody}</p>
+      </div>
+      <div class="button-row compact">
+        <a class="button secondary" href={links.openCollective}>{c.home.openCollectiveAction}</a>
+        <a class="button ghost" href={links.koFi}>{c.home.koFiAction}</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

@@ -19,6 +19,9 @@ export const links = {
     "https://github.com/tzap-org/tzap/blob/main/public-docs/tzap-cli-reference.md",
   zmanagerRepo: "https://github.com/frankmanzhu/zmanager",
   zmanagerReleases: "https://github.com/frankmanzhu/zmanager/releases",
+  supportEmail: "support@tzap.org",
+  openCollective: "https://opencollective.com/tzap-org",
+  koFi: "https://ko-fi.com/tzaporg",
 };
 
 export const routeSlugs = ["", "download", "docs", "spec", "zmanager"] as const;
@@ -83,6 +86,15 @@ export const copy = {
       ecosystemTitle: "Related tools",
       ecosystem:
         "ZManager CLI is an open-source universal archiver that supports .tzap workflows alongside ZIP, TAR.ZST, 7z, and broad extraction formats.",
+      contactTitle: "Contact",
+      contactBody:
+        "Questions, support requests, and project coordination can go through email.",
+      contactAction: "Email support@tzap.org",
+      sponsorshipTitle: "Sponsorship",
+      sponsorshipBody:
+        "Support ongoing tzap development through Open Collective or Ko-fi.",
+      openCollectiveAction: "Sponsor on Open Collective",
+      koFiAction: "Sponsor on Ko-fi",
     },
     download: {
       title: "Download tzap",
@@ -219,6 +231,13 @@ export const copy = {
       ecosystemTitle: "相关工具",
       ecosystem:
         "ZManager CLI 是开源通用归档命令行工具，支持 .tzap 工作流，也支持 ZIP、TAR.ZST、7z 和广泛的解压格式。",
+      contactTitle: "联系",
+      contactBody: "问题、支持请求和项目协作可以通过邮件联系。",
+      contactAction: "发送邮件到 support@tzap.org",
+      sponsorshipTitle: "赞助",
+      sponsorshipBody: "通过 Open Collective 或 Ko-fi 支持 tzap 的持续开发。",
+      openCollectiveAction: "在 Open Collective 赞助",
+      koFiAction: "在 Ko-fi 赞助",
     },
     download: {
       title: "下载 tzap",

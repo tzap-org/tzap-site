@@ -1,5 +1,6 @@
 ---
-import { copy, links, localeLabels, localizedPath, nav, type Locale, type RouteSlug } from "@/data/site";
+import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
+import { copy, links, localizedPath, nav, type Locale, type RouteSlug } from "@/data/site";
 
 interface Props {
   locale: Locale;
@@ -16,22 +17,12 @@ const c = copy[locale];
       <img src="/tzap-icon.png" alt="" width="40" height="40" />
       <span>{c.siteName}</span>
     </a>
-    <nav class="primary-nav" aria-label="Primary navigation">
+    <nav class="primary-nav" aria-label={c.primaryNavigation}>
       {nav[locale].map((item) => (
         <a href={localizedPath(locale, item.slug)}>{item.label}</a>
       ))}
       <a href={links.githubOrg}>GitHub</a>
     </nav>
-    <div class="language-switcher" aria-label={c.language}>
-      {Object.entries(localeLabels).map(([lang, label]) => (
-        <a
-          class:list={["language-link", { active: lang === locale }]}
-          href={localizedPath(lang as Locale, slug)}
-          hreflang={lang}
-        >
-          {label}
-        </a>
-      ))}
-    </div>
+    <LanguageSwitcher locale={locale} slug={slug} />
   </div>
 </header>

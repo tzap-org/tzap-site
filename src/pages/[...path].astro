@@ -1,0 +1,248 @@
+---
+import CodeBlock from "@/components/CodeBlock.astro";
+import DownloadMethods from "@/components/DownloadMethods.astro";
+import RepoPanel from "@/components/RepoPanel.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { copy, links, locales, localizedPath, routeSlugs, type Locale, type RouteSlug } from "@/data/site";
+
+interface Props {
+  locale: Locale;
+  slug: RouteSlug;
+}
+
+export function getStaticPaths() {
+  return locales.flatMap((locale) =>
+    routeSlugs.map((slug) => {
+      const path = localizedPath(locale, slug).replace(/^\/|\/$/g, "");
+      return {
+        params: { path: path || undefined },
+        props: { locale, slug },
+      };
+    }),
+  );
+}
+
+const { locale, slug } = Astro.props;
+const c = copy[locale];
+const page = slug === "" ? c.home : c[slug];
+---
+
+<BaseLayout locale={locale} slug={slug} title={page.title} description={page.description}>
+  {slug === "" && (
+    <>
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">{c.home.eyebrow}</p>
+          <h1>{c.home.title}</h1>
+          <p class="lede">{c.home.subhead}</p>
+          <div class="button-row">
+            <a class="button" href={localizedPath(locale, "download")}>{c.home.primary}</a>
+            <a class="button secondary" href={links.tzapRepo}>{c.home.secondary}</a>
+            <a class="button ghost" href={links.tzapSpec}>{c.home.tertiary}</a>
+          </div>
+        </div>
+        <div class="install-box" aria-label={c.home.installLabel}>
+          <img class="hero-mark" src="/tzap-icon.png" alt="" width="160" height="160" />
+          <span>{c.home.installLabel}</span>
+          <CodeBlock code={c.home.installCommand} />
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap two-column">
+          <div>
+            <h2>{c.home.whyTitle}</h2>
+            <p>{c.home.why}</p>
+          </div>
+          <div>
+            <h2>{c.home.featuresTitle}</h2>
+            <ul class="feature-list">
+              {c.home.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap content-section">
+        <h2>{c.home.quickStartTitle}</h2>
+        <CodeBlock code={`export TZAP_PASSPHRASE='correct horse battery staple'
+printf '%s\\n' "$TZAP_PASSPHRASE" | \\
+  tzap create --password-stdin -o backup.tzap ./project
+
+printf '%s\\n' "$TZAP_PASSPHRASE" | tzap verify --password-stdin backup.tzap
+printf '%s\\n' "$TZAP_PASSPHRASE" | tzap extract --password-stdin backup.tzap -C restored`} />
+      </section>
+
+      <div class="wrap">
+        <RepoPanel title={c.home.ecosystemTitle} body={c.home.ecosystem} href={links.zmanagerRepo} action={c.home.ecosystemAction} />
+      </div>
+
+      <section class="wrap contact-section" aria-labelledby="contact-title">
+        <div class="contact-card">
+          <div>
+            <h2 id="contact-title">{c.home.contactTitle}</h2>
+            <p>{c.home.contactBody}</p>
+          </div>
+          <a class="button secondary" href={`mailto:${links.supportEmail}`}>{c.home.contactAction}</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h2>{c.home.sponsorshipTitle}</h2>
+            <p>{c.home.sponsorshipBody}</p>
+          </div>
+          <div class="button-row compact">
+            <a class="button secondary" href={localizedPath(locale, "sponsor")}>{c.home.openCollectiveAction}</a>
+            <a class="button ghost" href={links.koFi}>{c.home.koFiAction}</a>
+          </div>
+        </div>
+      </section>
+    </>
+  )}
+
+  {slug === "download" && (
+    <>
+      <section class="page-head wrap">
+        <h1>{c.download.title}</h1>
+        <p>{c.download.intro}</p>
+      </section>
+      <section class="wrap content-section">
+        <DownloadMethods methods={c.download.methods} />
+      </section>
+      <section class="band">
+        <div class="wrap split-action">
+          <div>
+            <h2>{c.download.releases}</h2>
+            <p>{c.download.releasesBody}</p>
+          </div>
+          <a class="button" href={links.tzapReleases}>{c.download.releaseButton}</a>
+        </div>
+      </section>
+    </>
+  )}
+
+  {slug === "docs" && (
+    <>
+      <section class="page-head wrap">
+        <h1>{c.docs.title}</h1>
+        <p>{c.docs.intro}</p>
+      </section>
+      <section class="wrap command-list">
+        {c.docs.sections.map((section) => (
+          <article class="command-item">
+            <h2>{section.title}</h2>
+            <CodeBlock code={section.command} />
+          </article>
+        ))}
+        <a class="button secondary" href={links.tzapCliReference}>{c.docs.more}</a>
+      </section>
+    </>
+  )}
+
+  {slug === "spec" && (
+    <>
+      <section class="page-head wrap">
+        <h1>{c.spec.title}</h1>
+        <p>{c.spec.body}</p>
+        <div class="button-row">
+          <a class="button" href={links.tzapSpec}>{c.spec.specButton}</a>
+          <a class="button secondary" href={links.tzapRepo}>{c.spec.repoButton}</a>
+        </div>
+      </section>
+      <section class="band">
+        <div class="wrap">
+          <h2>{c.spec.notesTitle}</h2>
+          <ul class="feature-list columns">
+            {c.spec.notes.map((note) => <li>{note}</li>)}
+          </ul>
+        </div>
+      </section>
+    </>
+  )}
+
+  {slug === "zmanager" && (
+    <>
+      <section class="page-head wrap">
+        <h1>{c.zmanager.title}</h1>
+        <p>{c.zmanager.body}</p>
+        <p class="notice">{c.zmanager.openBoundary}</p>
+        <div class="button-row">
+          <a class="button" href={links.zmanagerRepo}>{c.zmanager.repoButton}</a>
+          <a class="button secondary" href={links.zmanagerReleases}>{c.zmanager.releaseButton}</a>
+        </div>
+      </section>
+      <section class="band">
+        <div class="wrap">
+          <h2>{c.zmanager.featuresTitle}</h2>
+          <ul class="feature-list columns">
+            {c.zmanager.features.map((feature) => <li>{feature}</li>)}
+          </ul>
+        </div>
+      </section>
+    </>
+  )}
+
+  {slug === "sponsor" && (
+    <>
+      <section class="support-hero wrap">
+        <div class="support-copy">
+          <p class="eyebrow">{c.sponsor.eyebrow}</p>
+          <h1>{c.sponsor.title}</h1>
+          <p class="lede">{c.sponsor.intro}</p>
+          <div class="button-row">
+            <a class="button" href={links.openCollective}>{c.sponsor.primary}</a>
+            <a class="button secondary" href={links.koFi}>{c.sponsor.secondary}</a>
+            <a class="button ghost" href={links.tzapRepo}>{c.sponsor.tertiary}</a>
+          </div>
+        </div>
+        <aside class="support-panel" aria-labelledby="support-panel-title">
+          <img class="hero-mark" src="/tzap-icon.png" alt="" width="160" height="160" />
+          <h2 id="support-panel-title">{c.sponsor.panelTitle}</h2>
+          <p>{c.sponsor.panelBody}</p>
+          <dl class="support-stats">
+            {c.sponsor.stats.map((item) => (
+              <div>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </aside>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <h2>{c.sponsor.usesTitle}</h2>
+          <div class="support-grid">
+            {c.sponsor.uses.map((item) => (
+              <article class="support-card">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap support-explain">
+        <article>
+          <h2>{c.sponsor.whyTitle}</h2>
+          <p>{c.sponsor.why}</p>
+        </article>
+        <article>
+          <h2>{c.sponsor.transparencyTitle}</h2>
+          <p>{c.sponsor.transparency}</p>
+        </article>
+      </section>
+
+      <section class="wrap">
+        <div class="support-cta">
+          <div>
+            <h2>{c.sponsor.footerTitle}</h2>
+            <p>{c.sponsor.footerBody}</p>
+          </div>
+          <a class="button" href={links.openCollective}>{c.sponsor.primary}</a>
+        </div>
+      </section>
+    </>
+  )}
+</BaseLayout>

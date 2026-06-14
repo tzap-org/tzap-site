@@ -1,0 +1,47 @@
+---
+import {
+  copy,
+  defaultLocale,
+  localeLabels,
+  locales,
+  localizedPath,
+  type Locale,
+  type RouteSlug,
+} from "@/data/site";
+
+interface Props {
+  locale: Locale;
+  slug: RouteSlug;
+}
+
+const { locale, slug } = Astro.props;
+const c = copy[locale];
+const otherLocales = locales.filter((lang) => lang !== defaultLocale);
+const dropdownLabel = locale === defaultLocale ? c.language : localeLabels[locale];
+---
+
+<div class="language-switcher" aria-label={c.language}>
+  <a
+    class:list={["language-link", "language-link-primary", { active: locale === defaultLocale }]}
+    href={localizedPath(defaultLocale, slug)}
+    hreflang={defaultLocale}
+    aria-current={locale === defaultLocale ? "page" : undefined}
+  >
+    {localeLabels[defaultLocale]}
+  </a>
+  <details class="language-menu">
+    <summary class="language-menu-trigger">{dropdownLabel}</summary>
+    <div class="language-menu-list">
+      {otherLocales.map((lang) => (
+        <a
+          class:list={["language-menu-item", { active: lang === locale }]}
+          href={localizedPath(lang, slug)}
+          hreflang={lang}
+          aria-current={lang === locale ? "page" : undefined}
+        >
+          {localeLabels[lang]}
+        </a>
+      ))}
+    </div>
+  </details>
+</div>

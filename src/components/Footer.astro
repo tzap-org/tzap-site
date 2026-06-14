@@ -1,11 +1,13 @@
 ---
-import { copy, links, localeLabels, localizedPath, type Locale } from "@/data/site";
+import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
+import { copy, links, localizedPath, type Locale, type RouteSlug } from "@/data/site";
 
 interface Props {
   locale: Locale;
+  slug: RouteSlug;
 }
 
-const { locale } = Astro.props;
+const { locale, slug } = Astro.props;
 const c = copy[locale];
 ---
 
@@ -21,12 +23,11 @@ const c = copy[locale];
       <a href={links.tzapRepo}>tzap GitHub</a>
       <a href={links.zmanagerRepo}>ZManager CLI</a>
       <a href={links.siteRepo}>{c.editSite}</a>
+      <a href={localizedPath(locale, "sponsor")}>{c.support}</a>
     </div>
     <div>
       <strong>{c.language}</strong>
-      {Object.entries(localeLabels).map(([lang, label]) => (
-        <a href={localizedPath(lang as Locale, "")}>{label}</a>
-      ))}
+      <LanguageSwitcher locale={locale} slug={slug} />
     </div>
   </div>
 </footer>

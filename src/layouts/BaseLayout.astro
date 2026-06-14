@@ -46,6 +46,6 @@ const canonical = new URL(localizedPath(locale, slug), links.site).toString();
     <main id="content">
       <slot />
     </main>
-    <Footer locale={locale} />
+    <Footer locale={locale} slug={slug} />
   </body>
 </html>

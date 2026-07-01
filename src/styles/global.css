@@ -57,8 +57,8 @@ p {
 h1 {
   max-width: 12ch;
   margin-bottom: 1rem;
-  font-size: clamp(2.6rem, 9vw, 5.6rem);
-  line-height: 0.95;
+  font-size: clamp(2.7rem, 7.2vw, 5rem);
+  line-height: 1;
   letter-spacing: 0;
 }
 
@@ -217,6 +217,10 @@ p {
   box-shadow: var(--shadow);
 }
 
+.language-menu:not([open]) .language-menu-list {
+  display: none;
+}
+
 .language-menu-item {
   display: block;
   padding: 0.45rem 0.55rem;
@@ -230,10 +234,18 @@ p {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  gap: clamp(2rem, 6vw, 5rem);
-  align-items: end;
-  padding: clamp(3rem, 9vw, 7rem) 0 clamp(2rem, 6vw, 4rem);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding: clamp(3.25rem, 8vw, 6.25rem) 0 clamp(2.5rem, 6vw, 4rem);
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-copy h1 {
+  max-width: 18ch;
 }
 
 .eyebrow {
@@ -246,9 +258,9 @@ p {
 }
 
 .lede {
-  max-width: 740px;
+  max-width: 690px;
   color: #344346;
-  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-size: clamp(1.08rem, 1.75vw, 1.35rem);
 }
 
 .button-row {
@@ -289,28 +301,38 @@ p {
 }
 
 .install-box {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 1rem;
   min-width: 0;
-  padding: 1rem;
+  max-width: 360px;
+  width: 100%;
+  margin-left: auto;
+  padding: clamp(1rem, 2.4vw, 1.35rem);
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
 }
 
+@media (min-width: 1101px) {
+  .hero-copy h1 {
+    max-width: 15.5ch;
+    font-size: 4.5rem;
+  }
+}
+
 .hero-mark {
   align-self: center;
-  width: min(160px, 52vw);
+  justify-self: center;
+  width: min(150px, 42vw);
   height: auto;
-  margin: 0.5rem 0 2rem;
+  margin: 0.25rem 0 0.5rem;
   border-radius: 8px;
 }
 
 .install-box > span {
-  margin-bottom: 0.7rem;
+  margin-bottom: -0.25rem;
   color: var(--muted);
   font-size: 0.85rem;
   font-weight: 800;
@@ -705,6 +727,30 @@ p {
 
   .feature-list.columns {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .hero-copy h1 {
+    max-width: 16ch;
+  }
+
+  .install-box {
+    width: min(100%, 520px);
+    max-width: none;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 861px) and (max-width: 1100px) {
+  .hero-copy h1 {
+    font-size: 4.25rem;
   }
 }
 

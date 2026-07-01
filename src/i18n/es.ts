@@ -2,7 +2,7 @@ import type { SiteCopy } from "./en";
 
 export const es = {
   "siteName": "tzap",
-  "titleSuffix": "Formato de archivo tzap",
+  "titleSuffix": "tzap: formato de archivo rápido, cifrado y resiliente",
   "skip": "Saltar al contenido",
   "openSourceNote": "Formato abierto. Implementación de referencia Rust. Apache-2.0.",
   "language": "Idioma",
@@ -12,7 +12,7 @@ export const es = {
   "footer": "tzap.org es el hogar público del formato de archivo tzap y las herramientas abiertas relacionadas.",
   "editSite": "Fuente del sitio web",
   "home": {
-    "title": "Formato de archivo tzap",
+    "title": "tzap: formato de archivo rápido, cifrado y resiliente",
     "description": "Archivos rápidos, cifrados y recuperables para un almacenamiento serio a largo plazo.",
     "eyebrow": "Formato de archivo abierto",
     "subhead": "tzap combina compresión Zstandard, cifrado autenticado, volúmenes divididos y datos de recuperación en un formato práctico con una implementación de referencia Rust.",
@@ -27,7 +27,7 @@ export const es = {
     "features": [
       "Compresión rápida con Zstandard.",
       "Contenidos, nombres, metadatos e índices cifrados.",
-      "Encabezados, manifiestos, índices, avances y cargas útiles autenticados.",
+      "Encabezados, manifiestos, índices, tráileres y cargas útiles autenticados.",
       "Recuperación Reed-Solomon para volúmenes dañados o faltantes.",
       "Restauraciones de acceso aleatorio desde archivos muy grandes.",
       "Diseños de volúmenes divididos para objetos en la nube, unidades, discos y medios fuera de línea."
@@ -65,7 +65,7 @@ export const es = {
         "note": "Lo mejor para contribuyentes e implementadores."
       }
     ],
-    "releases": "Liberar artefactos",
+    "releases": "Artefactos de lanzamiento",
     "releasesBody": "Los artefactos de la versión publicada se alojan en GitHub Releases. Consulte las notas de la versión para conocer los sistemas operativos, sumas de verificación y nombres de archivos compatibles.",
     "releaseButton": "Abrir GitHub Releases"
   },
@@ -83,7 +83,7 @@ export const es = {
         "command": "printf '%s\\n' \"$TZAP_PASSPHRASE\" | tzap list --password-stdin backup.tzap\nprintf '%s\\n' \"$TZAP_PASSPHRASE\" | tzap verify --password-stdin backup.tzap"
       },
       {
-        "title": "extraer todo",
+        "title": "Extraer todo",
         "command": "printf '%s\\n' \"$TZAP_PASSPHRASE\" | \\\n  tzap extract --password-stdin --directory restored backup.tzap"
       },
       {
@@ -118,7 +118,7 @@ export const es = {
     "openBoundary": "La CLI es de código abierto. La GUI de macOS es un límite de producto de código cerrado independiente y solo debe vincularse aquí cuando exista un canal de lanzamiento público.",
     "repoButton": "Abrir ZManager CLI",
     "releaseButton": "Lanzamientos ZManager",
-    "featuresTitle": "que hace",
+    "featuresTitle": "Qué hace",
     "features": [
       "Cree archivos ZIP, TAR.ZST, TZAP y 7z.",
       "Extraiga muchos formatos de escritorio, desarrolladores, paquetes y compresión sin formato.",
@@ -129,7 +129,7 @@ export const es = {
   "sponsor": {
     "title": "Patrocinar tzap",
     "description": "Ayude a financiar lanzamientos, documentación, pruebas de compatibilidad y mantenimiento a largo plazo de tzap.",
-    "eyebrow": "Financiamiento de fuente abierta",
+    "eyebrow": "Financiación de código abierto",
     "intro": "tzap es un software con forma de infraestructura: las partes útiles son las partes aburridas que siguen funcionando después del primer lanzamiento. El patrocinio ayuda a convertir un formato de archivo prometedor en una cadena de herramientas confiable en la que la gente puede confiar para obtener datos privados, registros de origen, bibliotecas multimedia, conjuntos de investigación y copias de seguridad en frío.",
     "primary": "Patrocinador en Open Collective",
     "secondary": "Patrocinador en Ko-fi",
@@ -146,7 +146,7 @@ export const es = {
         "value": "Rust"
       },
       {
-        "label": "Proyecto de inicio",
+        "label": "Sitio del proyecto",
         "value": "tzap.org"
       }
     ],
@@ -157,15 +157,15 @@ export const es = {
         "body": "Compilaciones multiplataforma, sumas de comprobación, documentos de instalación, pulido de paquetes y notas de versión predecibles."
       },
       {
-        "title": "Pruebas de compatibilidad y recuperación.",
-        "body": "Archivos fijos, casos de volumen dañado, comprobaciones de restauración de acceso aleatorio, objetivos difusos y cobertura de regresión."
+        "title": "Pruebas de compatibilidad y recuperación",
+        "body": "Fixtures de archivo, casos de volúmenes dañados, comprobaciones de restauración de acceso aleatorio, objetivos de fuzzing y cobertura de regresión."
       },
       {
-        "title": "Trabajos de documentación y especificaciones.",
+        "title": "Documentación y especificación",
         "body": "Flujos de trabajo de usuario claros, notas del implementador, revisiones de formato, orientación sobre migración y ejemplos públicos."
       },
       {
-        "title": "tiempo de mantenimiento",
+        "title": "Tiempo de mantenimiento",
         "body": "Clasificación de problemas, actualizaciones de dependencias, revisiones de seguridad, corrección de errores y el trabajo poco glamoroso que mantiene las herramientas confiables."
       }
     ],

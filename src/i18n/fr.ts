@@ -2,7 +2,7 @@ import type { SiteCopy } from "./en";
 
 export const fr = {
   "siteName": "tzap",
-  "titleSuffix": "Format d'archive tzap",
+  "titleSuffix": "tzap : format d'archive rapide, chiffré et résilient",
   "skip": "Passer au contenu",
   "openSourceNote": "Format ouvert. Implémentation de référence Rust. Apache-2.0.",
   "language": "Langue",
@@ -12,8 +12,8 @@ export const fr = {
   "footer": "tzap.org est le site public du format d'archive tzap et des outils ouverts associés.",
   "editSite": "Source du site Web",
   "home": {
-    "title": "Format d'archive tzap",
-    "description": "Archives rapides, cryptées et récupérables pour un stockage sérieux à long terme.",
+    "title": "tzap : format d'archive rapide, chiffré et résilient",
+    "description": "Archives rapides, chiffrées et récupérables pour un stockage sérieux à long terme.",
     "eyebrow": "Format d'archive ouvert",
     "subhead": "tzap combine la compression Zstandard, le chiffrement authentifié, les volumes divisés et les données de récupération dans un format pratique avec une implémentation de référence Rust.",
     "primary": "Télécharger tzap",
@@ -22,12 +22,12 @@ export const fr = {
     "installLabel": "Installer",
     "installCommand": "cargo install tzap",
     "whyTitle": "Pourquoi tzap",
-    "why": "La plupart des outils d'archives sont optimisés pour le partage de petits fichiers ou le décompression d'anciens formats. tzap est destiné aux archives auxquelles vous devrez peut-être faire confiance dans des années : ensembles de données privés, enregistrements sources, ensembles de médias, documents juridiques et sauvegardes à froid.",
+    "why": "La plupart des outils d'archives sont optimisés pour le partage de petits fichiers ou l'extraction d'anciens formats. tzap est destiné aux archives auxquelles vous devrez peut-être faire confiance dans des années : ensembles de données privés, enregistrements sources, ensembles de médias, documents juridiques et sauvegardes à froid.",
     "featuresTitle": "Capacités de base",
     "features": [
       "Compression rapide avec Zstandard.",
-      "Contenus, noms, métadonnées et index cryptés.",
-      "En-têtes, manifestes, index, bandes-annonces et charges utiles authentifiés.",
+      "Contenus, noms, métadonnées et index chiffrés.",
+      "En-têtes, manifestes, index, blocs de fin et charges utiles authentifiés.",
       "Récupération Reed-Solomon pour les volumes endommagés ou manquants.",
       "Restaurations à accès aléatoire à partir de très grandes archives.",
       "Dispositions en volumes divisés pour les objets cloud, les lecteurs, les disques et les supports hors ligne."
@@ -134,7 +134,7 @@ export const fr = {
     "primary": "Parrainer sur Open Collective",
     "secondary": "Parrainer sur Ko-fi",
     "tertiary": "Voir la source",
-    "panelTitle": "Quel financement soutient",
+    "panelTitle": "Ce que le financement soutient",
     "panelBody": "Le premier objectif est simple : maintenir le travail sur les versions, la documentation, l'empaquetage, les tests et les spécifications sans compter uniquement sur le temps libre.",
     "stats": [
       {
@@ -158,14 +158,14 @@ export const fr = {
       },
       {
         "title": "Tests de compatibilité et de récupération",
-        "body": "Archivez les montages, les cas de volumes endommagés, les contrôles de restauration par accès aléatoire, les cibles fuzz et la couverture de régression."
+        "body": "Jeux d'archives de test, cas de volumes endommagés, contrôles de restauration par accès aléatoire, cibles de fuzzing et couverture de régression."
       },
       {
         "title": "Travail de documentation et de spécification",
         "body": "Flux de travail utilisateur clairs, notes de mise en œuvre, révisions de format, conseils de migration et exemples publics."
       },
       {
-        "title": "Temps d'entretien",
+        "title": "Temps de maintenance",
         "body": "Tri des problèmes, mises à jour des dépendances, examens de sécurité, corrections de bugs et travail peu glamour qui garantit la fiabilité des outils."
       }
     ],

@@ -2,24 +2,24 @@ import type { SiteCopy } from "./en";
 
 export const ko = {
   "siteName": "tzap",
-  "titleSuffix": "tzap 아카이브 형식",
+  "titleSuffix": "tzap: 빠르고 암호화된 복원력 있는 아카이브 형식",
   "skip": "콘텐츠로 건너뛰기",
   "openSourceNote": "개방형 형식. Rust 참조 구현. Apache-2.0.",
   "language": "언어",
-  "source": "원천",
-  "support": "지원하다",
+  "source": "소스",
+  "support": "지원",
   "primaryNavigation": "기본 탐색",
   "footer": "tzap.org는 tzap 아카이브 형식 및 관련 공개 도구에 대한 공개 홈입니다.",
   "editSite": "웹사이트 소스",
   "home": {
-    "title": "tzap 아카이브 형식",
+    "title": "tzap: 빠르고 암호화된 복원력 있는 아카이브 형식",
     "description": "장기간 보관을 위한 빠르고 암호화되었으며 복구 가능한 아카이브입니다.",
     "eyebrow": "오픈 아카이브 형식",
     "subhead": "tzap는 Rust 참조 구현을 통해 Zstandard 압축, 인증된 암호화, 분할 볼륨 및 복구 데이터를 하나의 실용적인 형식으로 결합합니다.",
     "primary": "tzap 다운로드",
     "secondary": "GitHub 보기",
     "tertiary": "사양 읽기",
-    "installLabel": "설치하다",
+    "installLabel": "설치",
     "installCommand": "cargo install tzap",
     "whyTitle": "왜 tzap인가?",
     "why": "대부분의 아카이브 도구는 작은 파일을 공유하거나 오래된 형식의 압축을 푸는 데 최적화되어 있습니다. tzap는 개인 데이터 세트, 소스 레코드, 미디어 세트, 법적 자료 및 콜드 백업과 같이 지금부터 몇 년 동안 신뢰해야 할 아카이브를 목표로 합니다.",
@@ -36,7 +36,7 @@ export const ko = {
     "ecosystemTitle": "관련 도구",
     "ecosystem": "ZManager CLI는 ZIP, TAR.ZST, 7z 및 광범위한 추출 형식과 함께 .tzap 워크플로를 지원하는 오픈 소스 범용 아카이버입니다.",
     "ecosystemAction": "ZManager CLI 열기",
-    "contactTitle": "연락하다",
+    "contactTitle": "연락처",
     "contactBody": "질문, 지원 요청, 프로젝트 조정은 이메일을 통해 이루어질 수 있습니다.",
     "contactAction": "support@tzap.org로 이메일 보내기",
     "sponsorshipTitle": "후원",
@@ -70,7 +70,7 @@ export const ko = {
     "releaseButton": "GitHub Releases 열기"
   },
   "docs": {
-    "title": "선적 서류 비치",
+    "title": "문서",
     "description": "아카이브 생성, 확인, 나열, 추출 및 복구를 위한 일반적인 tzap 워크플로입니다.",
     "intro": "이 예에서는 stdin을 통해 암호 모드를 사용하므로 비밀이 셸 기록이나 프로세스 목록에 표시되지 않습니다.",
     "sections": [
@@ -138,7 +138,7 @@ export const ko = {
     "panelBody": "첫 번째 목표는 간단합니다. 여가 시간에만 의존하지 않고 릴리스, 문서, 패키징, 테스트 및 사양 작업을 계속 진행하는 것입니다.",
     "stats": [
       {
-        "label": "특허",
+        "label": "라이선스",
         "value": "Apache-2.0"
       },
       {

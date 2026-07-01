@@ -1,6 +1,6 @@
 export const en = {
   siteName: "tzap",
-  titleSuffix: "tzap encrypted archive format",
+  titleSuffix: "tzap: fast, encrypted, resilient archive format",
   skip: "Skip to content",
   openSourceNote: "Open format. Rust reference implementation. Apache-2.0.",
   language: "Language",
@@ -11,12 +11,12 @@ export const en = {
     "tzap.org is the public home for the tzap archive format and related open tools.",
   editSite: "Website source",
   home: {
-    title: "tzap encrypted archive format",
+    title: "tzap: fast, encrypted, resilient archive format",
     description:
-      "Open-source archive format and Rust CLI for encrypted, recoverable, split-volume long-term storage.",
+      "Open-source archive format and Rust CLI for fast, encrypted, resilient long-term archives.",
     eyebrow: "Open archive format",
     subhead:
-      "tzap combines Zstandard compression, authenticated encryption, split volumes, and recovery data in one practical format with a Rust reference implementation.",
+      "tzap combines fast Zstandard compression, authenticated encryption, split volumes, recovery data, and random-access restores in one practical format with a Rust reference implementation.",
     primary: "Download tzap",
     secondary: "View GitHub",
     tertiary: "Read the spec",
@@ -24,7 +24,7 @@ export const en = {
     installCommand: "cargo install tzap",
     whyTitle: "Why tzap",
     why:
-      "Most archive tools optimize for sharing small files or unpacking old formats. tzap is aimed at archives you may need to trust years from now: private datasets, source records, media sets, legal material, and cold backups.",
+      "Most archive tools optimize for sharing small files or unpacking old formats. tzap is aimed at archives you may need to trust years from now: private datasets, source records, media sets, legal records, and cold backups.",
     featuresTitle: "Core capabilities",
     features: [
       "Fast compression with Zstandard.",
@@ -41,7 +41,7 @@ export const en = {
     ecosystemAction: "Open ZManager CLI",
     contactTitle: "Contact",
     contactBody:
-      "Questions, support requests, and project coordination can go through email.",
+      "Questions, support requests, and project coordination can be sent by email.",
     contactAction: "Email support@tzap.org",
     sponsorshipTitle: "Sponsorship",
     sponsorshipBody:
@@ -126,7 +126,7 @@ export const en = {
     notes: [
       "The reference implementation is written in Rust.",
       "The format targets authenticated metadata and payloads.",
-      "Split-volume and recovery behavior are part of the format story, not an afterthought.",
+      "Split-volume and recovery behavior are part of the format design, not an afterthought.",
       "Conformance matrices can be linked here once they are ready for public readers.",
     ],
   },

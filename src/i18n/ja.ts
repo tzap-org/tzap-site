@@ -2,7 +2,7 @@ import type { SiteCopy } from "./en";
 
 export const ja = {
   "siteName": "tzap",
-  "titleSuffix": "tzap アーカイブ形式",
+  "titleSuffix": "tzap：高速・暗号化・レジリエントアーカイブ形式",
   "skip": "コンテンツにスキップ",
   "openSourceNote": "オープンフォーマット。 Rust リファレンス実装。 Apache-2.0。",
   "language": "言語",
@@ -12,7 +12,7 @@ export const ja = {
   "footer": "tzap.org は、tzap アーカイブ形式および関連するオープン ツールの公開ホームです。",
   "editSite": "ウェブサイトのソース",
   "home": {
-    "title": "tzap アーカイブ形式",
+    "title": "tzap：高速・暗号化・レジリエントアーカイブ形式",
     "description": "重要な長期保存用の、高速で暗号化された回復可能なアーカイブ。",
     "eyebrow": "オープンアーカイブ形式",
     "subhead": "tzap は、Zstandard 圧縮、認証済み暗号化、分割ボリューム、および回復データを 1 つの実用的な形式で Rust リファレンス実装と組み合わせます。",
@@ -36,8 +36,8 @@ export const ja = {
     "ecosystemTitle": "関連ツール",
     "ecosystem": "ZManager CLI は、ZIP、TAR.ZST、7z、および広範な抽出形式とともに .tzap ワークフローをサポートするオープンソースのユニバーサル アーカイバです。",
     "ecosystemAction": "ZManager CLIを開く",
-    "contactTitle": "接触",
-    "contactBody": "質問、サポートのリクエスト、プロジェクトの調整は電子メールで行うことができます。",
+    "contactTitle": "連絡先",
+    "contactBody": "質問、サポート依頼、プロジェクト調整はメールでご連絡ください。",
     "contactAction": "support@tzap.org にメール",
     "sponsorshipTitle": "スポンサーシップ",
     "sponsorshipBody": "リリース作業、互換性テスト、ドキュメント、長期保守を支援します。",
@@ -127,7 +127,7 @@ export const ja = {
     ]
   },
   "sponsor": {
-    "title": "スポンサー tzap",
+    "title": "tzapをスポンサーする",
     "description": "tzap のリリース、ドキュメント、互換性テスト、長期メンテナンスへの資金提供にご協力ください。",
     "eyebrow": "オープンソースの資金調達",
     "intro": "tzap はインフラストラクチャ型のソフトウェアです。便利な部分は最初のリリース後も動作し続ける退屈な部分です。スポンサーシップは、有望なアーカイブ形式を、プライベート データ、ソース レコード、メディア ライブラリ、リサーチ セット、およびコールド バックアップに関して人々が信頼できる信頼できるツールチェーンに変えるのに役立ちます。",

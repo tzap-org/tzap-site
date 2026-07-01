@@ -2,17 +2,17 @@ import type { SiteCopy } from "./en";
 
 export const ptBR = {
   "siteName": "tzap",
-  "titleSuffix": "Formato de arquivo tzap",
+  "titleSuffix": "tzap: formato de arquivo rápido, criptografado e resiliente",
   "skip": "Pular para o conteúdo",
   "openSourceNote": "Formato aberto. Implementação de referência Rust. Apache-2.0.",
-  "language": "Linguagem",
+  "language": "Idioma",
   "source": "Fonte",
-  "support": "Apoiar",
+  "support": "Suporte",
   "primaryNavigation": "Navegação primária",
   "footer": "tzap.org é o local público do formato de arquivo tzap e ferramentas abertas relacionadas.",
   "editSite": "Fonte do site",
   "home": {
-    "title": "Formato de arquivo tzap",
+    "title": "tzap: formato de arquivo rápido, criptografado e resiliente",
     "description": "Arquivos rápidos, criptografados e recuperáveis ​​para armazenamento sério de longo prazo.",
     "eyebrow": "Formato de arquivo aberto",
     "subhead": "O tzap combina compactação Zstandard, criptografia autenticada, volumes divididos e dados de recuperação em um formato prático com uma implementação de referência Rust.",
@@ -60,7 +60,7 @@ export const ptBR = {
         "note": "Bom para usuários de macOS e Linuxbrew."
       },
       {
-        "name": "Da fonte",
+        "name": "Do código-fonte",
         "command": "git clone https://github.com/tzap-org/tzap.git\ncd tzap\ncargo build --release -p tzap",
         "note": "Melhor para contribuidores e implementadores."
       }
@@ -146,7 +146,7 @@ export const ptBR = {
         "value": "Rust"
       },
       {
-        "label": "Casa do projeto",
+        "label": "Site do projeto",
         "value": "tzap.org"
       }
     ],
@@ -158,7 +158,7 @@ export const ptBR = {
       },
       {
         "title": "Testes de compatibilidade e recuperação",
-        "body": "Arquive equipamentos, casos de volumes danificados, verificações de restauração de acesso aleatório, alvos fuzz e cobertura de regressão."
+        "body": "Conjuntos de teste de arquivos, casos de volumes danificados, verificações de restauração de acesso aleatório, alvos de fuzzing e cobertura de regressão."
       },
       {
         "title": "Trabalho de documentação e especificação",

@@ -2,7 +2,7 @@ import type { SiteCopy } from "./en";
 
 export const de = {
   "siteName": "tzap",
-  "titleSuffix": "tzap-Archivformat",
+  "titleSuffix": "tzap: Format für schnelle, verschlüsselte, resiliente Archive",
   "skip": "Zum Inhalt springen",
   "openSourceNote": "Offenes Format. Rust-Referenzimplementierung. Apache-2.0.",
   "language": "Sprache",
@@ -12,7 +12,7 @@ export const de = {
   "footer": "tzap.org ist die öffentliche Heimat des tzap-Archivformats und der zugehörigen offenen Tools.",
   "editSite": "Website-Quelle",
   "home": {
-    "title": "tzap-Archivformat",
+    "title": "tzap: Format für schnelle, verschlüsselte, resiliente Archive",
     "description": "Schnelle, verschlüsselte, wiederherstellbare Archive für ernsthafte Langzeitspeicherung.",
     "eyebrow": "Offenes Archivformat",
     "subhead": "tzap kombiniert Zstandard-Komprimierung, authentifizierte Verschlüsselung, geteilte Volumes und Wiederherstellungsdaten in einem praktischen Format mit einer Rust-Referenzimplementierung.",
@@ -60,7 +60,7 @@ export const de = {
         "note": "Gut für macOS- und Linuxbrew-Benutzer."
       },
       {
-        "name": "Aus der Quelle",
+        "name": "Aus dem Quellcode",
         "command": "git clone https://github.com/tzap-org/tzap.git\ncd tzap\ncargo build --release -p tzap",
         "note": "Am besten für Mitwirkende und Implementierer."
       }
@@ -146,7 +146,7 @@ export const de = {
         "value": "Rust"
       },
       {
-        "label": "Projekthaus",
+        "label": "Projektseite",
         "value": "tzap.org"
       }
     ],
@@ -158,7 +158,7 @@ export const de = {
       },
       {
         "title": "Kompatibilitäts- und Wiederherstellungstests",
-        "body": "Archivierungseinbauten, Fälle von beschädigten Datenträgern, Wiederherstellungsprüfungen mit wahlfreiem Zugriff, Fuzz-Ziele und Regressionsabdeckung."
+        "body": "Archiv-Testdaten, beschädigte Datenträgerfälle, Wiederherstellungsprüfungen mit wahlfreiem Zugriff, Fuzz-Ziele und Regressionsabdeckung."
       },
       {
         "title": "Dokumentations- und Spezifikationsarbeiten",

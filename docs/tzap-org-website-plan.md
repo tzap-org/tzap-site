@@ -419,17 +419,17 @@ own them.
 
 ### Homepage Headline
 
-`tzap archive format`
+`tzap: fast, encrypted, resilient archive format`
 
 ### Homepage Subhead
 
-`Fast, encrypted, recoverable archives for serious long-term storage.`
+`Fast, encrypted, resilient archives for serious long-term storage.`
 
 ### Short Description
 
-`tzap combines Zstandard compression, authenticated encryption, split volumes,
-and recovery data in one open archive format with a Rust reference
-implementation.`
+`tzap combines fast Zstandard compression, authenticated encryption, split
+volumes, recovery data, and random-access restores in one open archive format
+with a Rust reference implementation.`
 
 ### Capability Bullets
 
@@ -480,9 +480,9 @@ calls to render useful content.
 
 Required metadata:
 
-- Site title: `tzap archive format`
+- Site title: `tzap: fast, encrypted, resilient archive format`
 - Default description: `An open archive format for fast, encrypted,
-  recoverable, random-access archives.`
+  resilient, random-access archives.`
 - Open Graph image.
 - `robots.txt`
 - `sitemap.xml`
@@ -492,9 +492,12 @@ Required metadata:
 Target search phrases:
 
 - `tzap archive format`
+- `fast archive format`
 - `encrypted archive format`
 - `recoverable archive format`
+- `resilient archive format`
 - `zstd encrypted archive`
+- `zstd fast archive`
 - `split volume archive recovery`
 - `ZManager CLI`
 

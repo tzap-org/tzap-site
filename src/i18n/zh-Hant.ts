@@ -2,7 +2,7 @@ import type { SiteCopy } from "./en";
 
 export const zhHant = {
   siteName: "tzap",
-  titleSuffix: "tzap 封存格式",
+  titleSuffix: "tzap：快速、加密、韌性封存格式",
   skip: "跳到內容",
   openSourceNote: "開放格式。Rust 參考實作。Apache-2.0。",
   language: "語言",
@@ -12,7 +12,7 @@ export const zhHant = {
   footer: "tzap.org 是 tzap 封存格式和相關開放工具的公共首頁。",
   editSite: "網站原始碼",
   home: {
-    title: "tzap 封存格式",
+    title: "tzap：快速、加密、韌性封存格式",
     description: "面向長期儲存的快速、加密、可復原封存。",
     eyebrow: "開放封存格式",
     subhead:

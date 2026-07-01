@@ -95,31 +95,31 @@ export const nav = {
 
 export const seoContent = {
   "": {
-    title: "Encrypted, recoverable archives for long-term storage",
+    title: "Fast, encrypted, resilient archives for long-term storage",
     body:
-      "tzap is built for private archives that need to remain understandable and restorable years after they were created. The format combines compression, authenticated encryption, manifest integrity checks, split-volume layouts, and recovery data so backups, source records, media sets, and research datasets can be stored with fewer fragile assumptions.",
+      "tzap is built for archives that need to be fast to create, private to store, and resilient enough to restore years later. The format combines Zstandard compression, authenticated encryption, manifest integrity checks, split-volume layouts, random-access restores, and recovery data so backups, source records, media sets, and research datasets can be stored with fewer fragile assumptions.",
     items: [
+      {
+        title: "Fast compression and restores",
+        body:
+          "Zstandard compression, archive indexes, and random-access extraction keep large archive creation, verification, and targeted restore workflows practical.",
+      },
       {
         title: "Encrypted archive metadata",
         body:
           "Archive contents, file names, metadata, indexes, and payloads can be protected instead of leaving sensitive structure exposed.",
       },
       {
-        title: "Recoverable split volumes",
+        title: "Resilient split volumes",
         body:
           "Archives can be divided for cloud objects, removable drives, discs, and offline media while retaining recovery options for damaged or missing pieces.",
-      },
-      {
-        title: "Random-access restores",
-        body:
-          "Large archives can be listed, verified, and restored selectively without turning every recovery into an all-or-nothing extraction.",
       },
     ],
   },
   download: {
     title: "Install tzap on developer machines and backup hosts",
     body:
-      "The tzap CLI can be installed with Cargo, packaged binaries, Homebrew, or a source build. These installation paths support local testing, automated backup jobs, reproducible archive workflows, and cross-platform validation for teams evaluating a modern encrypted archive format.",
+      "The tzap CLI can be installed with Cargo, packaged binaries, Homebrew, or a source build. These installation paths support local testing, automated backup jobs, reproducible archive workflows, and cross-platform validation for teams evaluating a fast, encrypted, resilient archive format.",
     items: [
       {
         title: "Cargo install",
@@ -139,14 +139,14 @@ export const seoContent = {
     ],
   },
   docs: {
-    title: "Command workflows for encrypted archive operations",
+    title: "Command workflows for fast, encrypted, resilient archives",
     body:
-      "The documentation focuses on practical command-line flows: creating archives, keeping passphrases out of shell history, listing and verifying archive integrity, extracting complete archives, restoring one file, and testing split-volume recovery behavior.",
+      "The documentation focuses on practical command-line flows: creating compressed archives quickly, keeping passphrases out of shell history, listing and verifying archive integrity, extracting complete archives, restoring one file, and testing split-volume recovery behavior.",
     items: [
       {
         title: "Create and verify backups",
         body:
-          "Use stdin-based passphrase handling, authenticated manifests, and verification commands to make backup runs easier to audit.",
+          "Use Zstandard compression, stdin-based passphrase handling, authenticated manifests, and verification commands to make backup runs faster and easier to audit.",
       },
       {
         title: "Inspect and restore selectively",
@@ -163,7 +163,7 @@ export const seoContent = {
   spec: {
     title: "Public archive format for implementers and reviewers",
     body:
-      "The tzap specification documents the archive layout for independent review and compatible implementations. It describes the format contract behind encrypted metadata, authenticated payloads, indexes, trailers, split volumes, and recovery behavior.",
+      "The tzap specification documents the archive layout for independent review and compatible implementations. It describes the format contract behind fast compression, encrypted metadata, authenticated payloads, indexes, trailers, split volumes, and recovery behavior.",
     items: [
       {
         title: "Format transparency",
@@ -173,7 +173,7 @@ export const seoContent = {
       {
         title: "Integrity model",
         body:
-          "Authenticated headers, manifests, indexes, trailers, and payloads are part of the format story rather than a separate wrapper.",
+          "Authenticated headers, manifests, indexes, trailers, and payloads are part of the format design rather than a separate wrapper.",
       },
       {
         title: "Recovery model",

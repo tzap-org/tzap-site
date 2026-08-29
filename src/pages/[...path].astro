@@ -1,7 +1,6 @@
 ---
 import CodeBlock from "@/components/CodeBlock.astro";
 import DownloadMethods from "@/components/DownloadMethods.astro";
-import RepoPanel from "@/components/RepoPanel.astro";
 import ZManagerDesktopDownloads from "@/components/ZManagerDesktopDownloads.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import {
@@ -85,9 +84,29 @@ printf '%s\\n' "$TZAP_PASSPHRASE" | tzap verify --password-stdin backup.tzap
 printf '%s\\n' "$TZAP_PASSPHRASE" | tzap extract --password-stdin backup.tzap -C restored`} />
       </section>
 
-      <div class="wrap">
-        <RepoPanel title={c.home.ecosystemTitle} body={c.home.ecosystem} href={links.zmanagerRepo} action={c.home.ecosystemAction} />
-      </div>
+      <section class="wrap related-tools" aria-labelledby="related-tools-title">
+        <div class="section-heading">
+          <h2 id="related-tools-title">{c.home.ecosystemTitle}</h2>
+        </div>
+        <div class="related-tools-grid">
+          <article class="related-tool">
+            <div>
+              <p class="eyebrow">CLI</p>
+              <h3>{c.zmanager.title}</h3>
+              <p>{c.home.ecosystem}</p>
+            </div>
+            <a class="button secondary" href={links.zmanagerRepo}>{c.home.ecosystemAction}</a>
+          </article>
+          <article class="related-tool">
+            <div>
+              <p class="eyebrow">Desktop</p>
+              <h3>{c.zmanagerDesktop.title}</h3>
+              <p>{c.zmanagerDesktop.description}</p>
+            </div>
+            <a class="button secondary" href={localizedPath(locale, "zmanager-desktop")}>{c.zmanagerDesktop.repoButton}</a>
+          </article>
+        </div>
+      </section>
 
       <section class="wrap contact-section" aria-labelledby="contact-title">
         <div class="contact-card">
@@ -293,6 +312,18 @@ printf '%s\\n' "$TZAP_PASSPHRASE" | tzap extract --password-stdin backup.tzap -C
           <h2 id="seo-section-title">{routeSeo.title}</h2>
           <p>{routeSeo.body}</p>
         </div>
+        {routeSeo.formatGroups && (
+          <div class="format-groups" aria-label="Supported archive formats">
+            {routeSeo.formatGroups.map((group) => (
+              <article class="format-group">
+                <h3>{group.label}</h3>
+                <ul class="format-chips">
+                  {group.formats.map((format) => <li>{format}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        )}
         <div class="seo-grid">
           {routeSeo.items.map((item) => (
             <article class="seo-item">

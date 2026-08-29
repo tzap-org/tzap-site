@@ -441,6 +441,53 @@ p {
   margin-bottom: 3rem;
 }
 
+.related-tools {
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.section-heading {
+  margin-bottom: 1rem;
+}
+
+.section-heading h2 {
+  margin-bottom: 0;
+}
+
+.related-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.related-tool {
+  display: grid;
+  gap: 1.25rem;
+  align-content: space-between;
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.related-tool .eyebrow {
+  margin-bottom: 0.55rem;
+}
+
+.related-tool h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.related-tool p:last-child {
+  margin-bottom: 0;
+}
+
+.related-tool .button {
+  justify-self: start;
+}
+
 .contact-section {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -601,6 +648,45 @@ p {
 
 .seo-intro p {
   font-size: 1.05rem;
+}
+
+.format-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.format-group {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.format-group h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.format-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.format-chips li {
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--graphite);
+  font-size: 0.86rem;
+  font-weight: 750;
 }
 
 .seo-grid {
@@ -773,6 +859,7 @@ p {
   .method-item,
   .command-item,
     .repo-panel,
+    .related-tools-grid,
     .support-hero,
     .support-grid,
     .support-grid.three,
@@ -836,5 +923,9 @@ p {
 
   .language-switcher {
     justify-content: start;
+  }
+
+  .format-groups {
+    grid-template-columns: 1fr;
   }
 }

@@ -226,24 +226,158 @@ export const seoContent = {
     ],
   },
   "zmanager-desktop": {
-    title: "Fast archive management on your desktop",
+    title: "One engine, many archive formats",
     body:
-      "ZManager Desktop is an open-source archive manager for macOS, Windows, and Linux. It brings browsing, testing, extracting, and creating archives into one native desktop workflow powered by the shared ZManager engine.",
+      "ZManager Desktop makes two jobs simple: open and extract broadly, then create deliberately. One shared Rust engine lets you open everything from ZIPs and RARs to disk images and raw compression files, then create the formats your workflow needs in one fast native app.",
+    formatGroups: [
+      {
+        label: "Create archives",
+        formats: [
+          ".zip (Deflate/store, AES-256)",
+          ".tzst (.tar.zst)",
+          ".tgz (.tar.gz)",
+          ".tzap",
+          ".7z (LZMA2, AES-256)",
+          ".aar/.aea (Apple Archive)",
+        ],
+      },
+      {
+        label: "ZIP family",
+        formats: [
+          ".zip",
+          ".zipx",
+          ".jar",
+          ".war",
+          ".ipa",
+          ".apk",
+          ".appx",
+          ".xpi",
+          ".cbz",
+          ".epub",
+          "split .z01… volumes",
+          "ZIP-content .exe",
+        ],
+      },
+      {
+        label: "7z family",
+        formats: [
+          ".7z",
+          ".cb7",
+          ".sevenz",
+          "encrypted 7z",
+          "numbered .7z.001 volumes",
+        ],
+      },
+      {
+        label: "RAR family",
+        formats: [
+          ".rar",
+          ".cbr",
+          "split .partN.rar volumes",
+          "RAR4/RAR5",
+          "passworded RAR",
+          "encrypted RAR5",
+        ],
+      },
+      {
+        label: "TAR and variants",
+        formats: [
+          ".tar",
+          ".cbt",
+          ".ustar",
+          ".pax",
+          ".tar.gz",
+          ".tgz",
+          ".tar.bz2",
+          ".tbz2",
+          ".tbz",
+          ".tar.xz",
+          ".txz",
+          ".tar.lzma",
+          ".tlzma",
+          ".tzst",
+          ".tar.zst",
+          ".tar.lz",
+          ".tar.lzo",
+          ".tar.Z",
+          ".taz",
+          ".tar.lz4",
+          ".tar.uu",
+          ".tar.b64",
+        ],
+      },
+      {
+        label: "TZAP and raw compression",
+        formats: [
+          ".tzap",
+          ".zst",
+          ".gz",
+          ".bz2",
+          ".xz",
+          ".lzma",
+          ".lz",
+          ".br",
+          ".lz4",
+          ".lzo",
+          ".Z",
+          ".uu",
+          ".b64",
+        ],
+      },
+      {
+        label: "Packages and containers",
+        formats: [
+          ".deb",
+          ".rpm",
+          ".a",
+          ".ar",
+          ".lib",
+          ".cpio",
+          ".cpio.gz",
+          ".cpio.bz2",
+          ".cpio.xz",
+          ".cpio.lzma",
+          ".cpio.zst",
+          ".cpgz",
+          ".spk",
+          ".iso",
+          ".xar",
+          ".cab",
+          ".msi",
+          ".pkg",
+          ".lha",
+          ".lzh",
+          ".warc",
+          ".mtree",
+        ],
+      },
+      {
+        label: "Disk images and Apple Archive",
+        formats: [
+          ".dmg (Apple Disk Image)",
+          ".vhd (Virtual PC/Hyper-V)",
+          ".vmdk (VMware)",
+          ".udf (optical)",
+          ".aar",
+          ".aea (encrypted Apple Archive)",
+        ],
+      },
+    ],
     items: [
       {
-        title: "Native desktop workflows",
+        title: "Extract broadly",
         body:
-          "Use file associations, shell integration, and platform-native packages to work with archives where your files already live.",
+          "Open desktop, developer, package, mobile, disk-image, and raw compression formats without first hunting for a specialized utility.",
       },
       {
-        title: "One engine, many formats",
+        title: "Create deliberately",
         body:
-          "Browse, test, extract, and create ZIP, 7z, TZST, TZAP, and common tar-based archives from one app.",
+          "Choose ZIP for sharing, TZST for fast compression, TGZ for compatibility, TZAP for encrypted recoverable archives, 7z for high-compression encryption, or Apple Archive for Apple platforms.",
       },
       {
-        title: "Release artifacts you can verify",
+        title: "Safety built into the engine",
         body:
-          "Every release includes platform packages and SHA256 checksums so you can choose the right build and verify what you downloaded.",
+          "Password prompts, safe path handling, overwrite protection, and hostile-archive checks keep broad extraction practical without sacrificing control.",
       },
     ],
   },
@@ -269,4 +403,12 @@ export const seoContent = {
       },
     ],
   },
-} satisfies Record<RouteSlug, { title: string; body: string; items: Array<{ title: string; body: string }> }>;
+} satisfies Record<
+  RouteSlug,
+  {
+    title: string;
+    body: string;
+    items: Array<{ title: string; body: string }>;
+    formatGroups?: Array<{ label: string; formats: string[] }>;
+  }
+>;

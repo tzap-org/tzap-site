@@ -137,7 +137,7 @@ export const en = {
     body:
       "ZManager CLI is a practical universal archiver for macOS, Linux, and Windows. It creates modern archives, extracts a broad set of formats safely, and supports .tzap creation and extraction.",
     openBoundary:
-      "The CLI is open source. The macOS GUI is a separate closed-source product boundary and should only be linked here when there is a public release channel.",
+      "The CLI and desktop app share the ZManager engine. Use this page for shell workflows and scripting, or open the desktop page for native installers.",
     repoButton: "Open ZManager CLI",
     releaseButton: "ZManager releases",
     featuresTitle: "What it does",
@@ -146,6 +146,38 @@ export const en = {
       "Extract many desktop, developer, package, and raw compression formats.",
       "Use password prompts or stdin instead of command-line password arguments.",
       "Apply safe extraction checks by default.",
+    ],
+  },
+  zmanagerDesktop: {
+    title: "ZManager Desktop",
+    description:
+      "Download ZManager Desktop for macOS, Windows, and Linux. Choose a native installer or portable package for arm64 or x64.",
+    eyebrow: "Desktop archive manager",
+    intro:
+      "Browse, test, extract, and create archives in one native desktop app powered by the ZManager engine. The download button checks your browser’s operating system and architecture, then points to the matching asset from the latest release.",
+    repoButton: "Open ZManager Desktop",
+    releaseButton: "ZManager Desktop releases",
+    latestButton: "Download latest for my device",
+    allReleases: "All release assets",
+    detected: "Detected device",
+    detecting: "Checking your operating system and CPU…",
+    optionsTitle: "Choose another package",
+    optionsBody:
+      "Switch the platform, architecture, or package format when you are downloading for another computer or prefer a portable/archive package.",
+    osLabel: "Operating system",
+    architectureLabel: "CPU architecture",
+    packageLabel: "Package format",
+    downloadSelected: "Download selected package",
+    loading: "Finding the latest release…",
+    error: "Could not load release metadata. The buttons still open the GitHub release page.",
+    releaseLoaded: "Latest release",
+    noAsset: "That package is not available in the latest release. See all release assets.",
+    featuresTitle: "What you get",
+    features: [
+      "Native packages for macOS, Windows, and Linux.",
+      "macOS Apple Silicon and Intel builds, plus Windows and Linux arm64/x64 builds.",
+      "Installer, portable, DMG, ZIP, DEB, and RPM choices where published.",
+      "SHA256 checksums included with every release for download verification.",
     ],
   },
   sponsor: {

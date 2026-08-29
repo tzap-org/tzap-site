@@ -130,7 +130,7 @@ export const zhHant = {
     body:
       "ZManager CLI 是面向 macOS、Linux 和 Windows 的通用封存工具。它可以建立現代封存、安全解壓多種格式，並支援 .tzap 建立和解壓。",
     openBoundary:
-      "CLI 是開源的。macOS GUI 是獨立的閉源產品邊界，只有在存在公開發行管道時才應從這裡連結。",
+      "CLI 與桌面應用程式共用 ZManager 引擎。本頁用於 Shell 工作流程和指令碼；如需原生安裝程式，請開啟桌面版頁面。",
     repoButton: "開啟 ZManager CLI",
     releaseButton: "ZManager 發行",
     featuresTitle: "功能概覽",

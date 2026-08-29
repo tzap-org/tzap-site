@@ -635,6 +635,76 @@ p {
   color: var(--graphite);
 }
 
+.download-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.download-panel-copy,
+.download-options {
+  min-width: 0;
+}
+
+.download-panel h2,
+.download-options h3 {
+  margin-bottom: 0.55rem;
+}
+
+.download-panel-copy > p:not(.eyebrow),
+.download-options > p {
+  max-width: 650px;
+}
+
+.device-detection,
+.download-status {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.device-detection {
+  margin-bottom: 0;
+  font-weight: 750;
+}
+
+.download-status {
+  margin: 0.75rem 0 0;
+}
+
+.download-form {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.download-form label {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--graphite);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.download-form select {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.download-form .button {
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
 .site-footer {
   padding: 2.5rem 0;
   border-top: 1px solid var(--border);
@@ -711,6 +781,7 @@ p {
     .support-cta,
     .contact-section,
     .seo-grid,
+    .download-panel,
   .split-action,
   .footer-grid {
     grid-template-columns: 1fr;

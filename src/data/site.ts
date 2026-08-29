@@ -12,14 +12,26 @@ export const links = {
     "https://github.com/tzap-org/tzap/blob/main/specs/tzap-format-revisedv43.md",
   tzapCliReference:
     "https://github.com/tzap-org/tzap/blob/main/public-docs/tzap-cli-reference.md",
-  zmanagerRepo: "https://github.com/frankmanzhu/zmanager",
-  zmanagerReleases: "https://github.com/frankmanzhu/zmanager/releases",
+  zmanagerRepo: "https://github.com/tzap-org/zmanager",
+  zmanagerReleases: "https://github.com/tzap-org/zmanager/releases",
+  zmanagerDesktopRepo: "https://github.com/tzap-org/zmanager-desktop",
+  zmanagerDesktopReleases: "https://github.com/tzap-org/zmanager-desktop/releases/latest",
+  zmanagerDesktopApi:
+    "https://api.github.com/repos/tzap-org/zmanager-desktop/releases/latest",
   supportEmail: "support@tzap.org",
   openCollective: "https://opencollective.com/tzap-org",
   koFi: "https://ko-fi.com/tzaporg",
 };
 
-export const routeSlugs = ["", "download", "docs", "spec", "zmanager", "sponsor"] as const;
+export const routeSlugs = [
+  "",
+  "download",
+  "docs",
+  "spec",
+  "zmanager-desktop",
+  "zmanager",
+  "sponsor",
+] as const;
 export type RouteSlug = (typeof routeSlugs)[number];
 
 export function localizedPath(locale: Locale, slug: RouteSlug): string {
@@ -32,63 +44,72 @@ export const nav = {
     { label: "Download", slug: "download" },
     { label: "Docs", slug: "docs" },
     { label: "Spec", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "Sponsor", slug: "sponsor" },
   ],
   "zh-Hans": [
     { label: "下载", slug: "download" },
     { label: "文档", slug: "docs" },
     { label: "规范", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "赞助", slug: "sponsor" },
   ],
   "zh-Hant": [
     { label: "下載", slug: "download" },
     { label: "文件", slug: "docs" },
     { label: "規範", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "贊助", slug: "sponsor" },
   ],
   ja: [
     { label: "ダウンロード", slug: "download" },
     { label: "ドキュメント", slug: "docs" },
     { label: "仕様", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "スポンサー", slug: "sponsor" },
   ],
   ko: [
     { label: "다운로드", slug: "download" },
     { label: "문서", slug: "docs" },
     { label: "사양", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "후원", slug: "sponsor" },
   ],
   de: [
     { label: "Download", slug: "download" },
     { label: "Doku", slug: "docs" },
     { label: "Spezifikation", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "Sponsor", slug: "sponsor" },
   ],
   fr: [
     { label: "Télécharger", slug: "download" },
     { label: "Docs", slug: "docs" },
     { label: "Spécification", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "Parrainer", slug: "sponsor" },
   ],
   es: [
     { label: "Descargar", slug: "download" },
     { label: "Docs", slug: "docs" },
     { label: "Especificación", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "Patrocinar", slug: "sponsor" },
   ],
   "pt-BR": [
     { label: "Baixar", slug: "download" },
     { label: "Docs", slug: "docs" },
     { label: "Especificação", slug: "spec" },
-    { label: "ZManager", slug: "zmanager" },
+    { label: "ZManager Desktop", slug: "zmanager-desktop" },
+    { label: "ZManager CLI", slug: "zmanager" },
     { label: "Patrocinar", slug: "sponsor" },
   ],
 } satisfies Record<Locale, Array<{ label: string; slug: RouteSlug }>>;
@@ -201,6 +222,28 @@ export const seoContent = {
         title: "Use safe defaults",
         body:
           "Prefer prompts and stdin for secrets and apply extraction checks that reduce common path and overwrite risks.",
+      },
+    ],
+  },
+  "zmanager-desktop": {
+    title: "Fast archive management on your desktop",
+    body:
+      "ZManager Desktop is an open-source archive manager for macOS, Windows, and Linux. It brings browsing, testing, extracting, and creating archives into one native desktop workflow powered by the shared ZManager engine.",
+    items: [
+      {
+        title: "Native desktop workflows",
+        body:
+          "Use file associations, shell integration, and platform-native packages to work with archives where your files already live.",
+      },
+      {
+        title: "One engine, many formats",
+        body:
+          "Browse, test, extract, and create ZIP, 7z, TZST, TZAP, and common tar-based archives from one app.",
+      },
+      {
+        title: "Release artifacts you can verify",
+        body:
+          "Every release includes platform packages and SHA256 checksums so you can choose the right build and verify what you downloaded.",
       },
     ],
   },

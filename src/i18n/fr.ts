@@ -115,7 +115,7 @@ export const fr = {
     "title": "ZManager CLI",
     "description": "Un archiveur de ligne de commande open source associé avec des flux de travail tzap de première classe.",
     "body": "ZManager CLI est un archiveur universel pratique pour macOS, Linux et Windows. Il crée des archives modernes, extrait un large éventail de formats en toute sécurité et prend en charge la création et l'extraction .tzap.",
-    "openBoundary": "La CLI est open source. L'interface graphique de macOS constitue une limite distincte de produit à code source fermé et ne doit être liée ici que lorsqu'il existe un canal de publication public.",
+    "openBoundary": "La CLI et l’application de bureau partagent le moteur ZManager. Utilisez cette page pour les workflows shell et les scripts, ou ouvrez la page bureau pour les installateurs natifs.",
     "repoButton": "Ouvrir ZManager CLI",
     "releaseButton": "Sorties ZManager",
     "featuresTitle": "Ce que ça fait",

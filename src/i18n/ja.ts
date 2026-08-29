@@ -115,7 +115,7 @@ export const ja = {
     "title": "ZManager CLI",
     "description": "ファーストクラスの tzap ワークフローを備えた、関連するオープンソース コマンド ライン アーカイバ。",
     "body": "ZManager CLI は、macOS、Linux、および Windows 用の実用的なユニバーサル アーカイバです。最新のアーカイブを作成し、幅広い形式のセットを安全に抽出し、.tzap の作成と抽出をサポートします。",
-    "openBoundary": "CLI はオープンソースです。 macOS GUI は独立したクローズドソース製品境界であり、パブリック リリース チャネルがある場合にのみここにリンクする必要があります。",
+    "openBoundary": "CLI とデスクトップ アプリは ZManager エンジンを共有します。シェル ワークフローとスクリプトにはこのページを、ネイティブ インストーラーにはデスクトップ ページを使用してください。",
     "repoButton": "ZManager CLIを開く",
     "releaseButton": "ZManager リリース",
     "featuresTitle": "何をするのか",

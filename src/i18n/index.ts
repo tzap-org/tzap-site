@@ -27,14 +27,14 @@ export const localeLabels = {
 
 export const copy = {
   en,
-  "zh-Hans": zhHans,
-  "zh-Hant": zhHant,
-  ja,
-  ko,
-  de,
-  fr,
-  es,
-  "pt-BR": ptBR,
+  "zh-Hans": { ...zhHans, zmanagerDesktop: en.zmanagerDesktop },
+  "zh-Hant": { ...zhHant, zmanagerDesktop: en.zmanagerDesktop },
+  ja: { ...ja, zmanagerDesktop: en.zmanagerDesktop },
+  ko: { ...ko, zmanagerDesktop: en.zmanagerDesktop },
+  de: { ...de, zmanagerDesktop: en.zmanagerDesktop },
+  fr: { ...fr, zmanagerDesktop: en.zmanagerDesktop },
+  es: { ...es, zmanagerDesktop: en.zmanagerDesktop },
+  "pt-BR": { ...ptBR, zmanagerDesktop: en.zmanagerDesktop },
 } satisfies Record<Locale, SiteCopy>;
 
 export function isLocale(value: string | undefined): value is Locale {

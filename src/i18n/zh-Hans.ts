@@ -130,7 +130,7 @@ export const zhHans = {
     body:
       "ZManager CLI 是面向 macOS、Linux 和 Windows 的通用归档工具。它可以创建现代归档、安全解压多种格式，并支持 .tzap 创建和解压。",
     openBoundary:
-      "CLI 是开源的。macOS GUI 是独立的闭源产品边界，只有在存在公开发布渠道时才应从这里链接。",
+      "CLI 与桌面应用共享 ZManager 引擎。本页用于 Shell 工作流和脚本；如需原生安装包，请打开桌面版页面。",
     repoButton: "打开 ZManager CLI",
     releaseButton: "ZManager 发布",
     featuresTitle: "功能概览",

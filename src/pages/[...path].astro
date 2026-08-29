@@ -2,6 +2,7 @@
 import CodeBlock from "@/components/CodeBlock.astro";
 import DownloadMethods from "@/components/DownloadMethods.astro";
 import RepoPanel from "@/components/RepoPanel.astro";
+import ZManagerDesktopDownloads from "@/components/ZManagerDesktopDownloads.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import {
   copy,
@@ -34,7 +35,7 @@ export function getStaticPaths() {
 
 const { locale, slug } = Astro.props;
 const c = copy[locale];
-const page = slug === "" ? c.home : c[slug];
+const page = slug === "" ? c.home : slug === "zmanager-desktop" ? c.zmanagerDesktop : c[slug];
 const routeSeo = locale === defaultLocale ? seoContent[slug] : undefined;
 ---
 
@@ -186,6 +187,34 @@ printf '%s\\n' "$TZAP_PASSPHRASE" | tzap extract --password-stdin backup.tzap -C
           <h2>{c.zmanager.featuresTitle}</h2>
           <ul class="feature-list columns">
             {c.zmanager.features.map((feature) => <li>{feature}</li>)}
+          </ul>
+        </div>
+      </section>
+    </>
+  )}
+
+  {slug === "zmanager-desktop" && (
+    <>
+      <section class="page-head wrap">
+        <h1>{c.zmanagerDesktop.title}</h1>
+        <p>{c.zmanagerDesktop.intro}</p>
+        <div class="button-row">
+          <a class="button secondary" href={links.zmanagerDesktopRepo}>{c.zmanagerDesktop.repoButton}</a>
+          <a class="button ghost" href={links.zmanagerDesktopReleases}>{c.zmanagerDesktop.releaseButton}</a>
+        </div>
+      </section>
+      <section class="wrap content-section">
+        <ZManagerDesktopDownloads
+          copy={c.zmanagerDesktop}
+          apiUrl={links.zmanagerDesktopApi}
+          releasesUrl={links.zmanagerDesktopReleases}
+        />
+      </section>
+      <section class="band">
+        <div class="wrap">
+          <h2>{c.zmanagerDesktop.featuresTitle}</h2>
+          <ul class="feature-list columns">
+            {c.zmanagerDesktop.features.map((feature) => <li>{feature}</li>)}
           </ul>
         </div>
       </section>

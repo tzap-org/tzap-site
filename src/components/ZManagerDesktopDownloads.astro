@@ -1,0 +1,292 @@
+---
+interface Props {
+  copy: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    latestButton: string;
+    allReleases: string;
+    detected: string;
+    detecting: string;
+    optionsTitle: string;
+    optionsBody: string;
+    osLabel: string;
+    architectureLabel: string;
+    packageLabel: string;
+    downloadSelected: string;
+    loading: string;
+    error: string;
+    releaseLoaded: string;
+    noAsset: string;
+  };
+  apiUrl: string;
+  releasesUrl: string;
+}
+
+const { copy, apiUrl, releasesUrl } = Astro.props;
+const downloadConfig = [
+  {
+    os: "macos",
+    osLabel: "macOS",
+    architectures: [
+      {
+        id: "arm64",
+        label: "Apple Silicon (arm64)",
+        packages: [
+          { id: "dmg", label: "DMG installer", pattern: "^ZManager-.*-macos-arm64\\.dmg$" },
+          { id: "zip", label: "ZIP archive", pattern: "^ZManager-.*-macos-arm64\\.zip$" },
+        ],
+      },
+      {
+        id: "x64",
+        label: "Intel (x64)",
+        packages: [
+          { id: "dmg", label: "DMG installer", pattern: "^ZManager-.*-macos-x86_64\\.dmg$" },
+          { id: "zip", label: "ZIP archive", pattern: "^ZManager-.*-macos-x86_64\\.zip$" },
+        ],
+      },
+    ],
+  },
+  {
+    os: "windows",
+    osLabel: "Windows",
+    architectures: [
+      {
+        id: "x64",
+        label: "x64",
+        packages: [
+          {
+            id: "installer",
+            label: "Installer (.exe)",
+            pattern: "^zmanager-desktop-.*-windows-x64-installer\\.exe$",
+          },
+          {
+            id: "portable",
+            label: "Portable (.exe)",
+            pattern: "^zmanager-desktop-.*-windows-x64-portable\\.exe$",
+          },
+        ],
+      },
+      {
+        id: "arm64",
+        label: "ARM64",
+        packages: [
+          {
+            id: "installer",
+            label: "Installer (.exe)",
+            pattern: "^zmanager-desktop-.*-windows-arm64-installer\\.exe$",
+          },
+          {
+            id: "portable",
+            label: "Portable (.exe)",
+            pattern: "^zmanager-desktop-.*-windows-arm64-portable\\.exe$",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    os: "linux",
+    osLabel: "Linux",
+    architectures: [
+      {
+        id: "x64",
+        label: "x64",
+        packages: [
+          { id: "deb", label: "Debian / Ubuntu (.deb)", pattern: "^zmanager-desktop-.*-linux-x64\\.deb$" },
+          { id: "rpm", label: "Fedora / RHEL (.rpm)", pattern: "^zmanager-desktop-.*-linux-x64\\.rpm$" },
+        ],
+      },
+      {
+        id: "arm64",
+        label: "ARM64",
+        packages: [
+          { id: "deb", label: "Debian / Ubuntu (.deb)", pattern: "^zmanager-desktop-.*-linux-arm64\\.deb$" },
+          { id: "rpm", label: "Fedora / RHEL (.rpm)", pattern: "^zmanager-desktop-.*-linux-arm64\\.rpm$" },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<section
+  class="download-panel"
+  data-zmanager-downloads
+  data-api-url={apiUrl}
+  data-releases-url={releasesUrl}
+  data-download-config={JSON.stringify(downloadConfig)}
+  aria-labelledby="desktop-download-title"
+>
+  <div class="download-panel-copy">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h2 id="desktop-download-title">{copy.title}</h2>
+    <p>{copy.intro}</p>
+    <p class="device-detection" data-device-detection aria-live="polite">{copy.detecting}</p>
+    <div class="button-row">
+      <a class="button" href={releasesUrl} data-latest-download>{copy.latestButton}</a>
+      <a class="button secondary" href={releasesUrl} data-release-page>{copy.allReleases}</a>
+    </div>
+    <p class="download-status" data-download-status aria-live="polite">{copy.loading}</p>
+  </div>
+
+  <div class="download-options">
+    <h3>{copy.optionsTitle}</h3>
+    <p>{copy.optionsBody}</p>
+    <form class="download-form" data-download-form>
+      <label>
+        <span>{copy.osLabel}</span>
+        <select data-os-select>
+          {downloadConfig.map((os) => <option value={os.os}>{os.osLabel}</option>)}
+        </select>
+      </label>
+      <label>
+        <span>{copy.architectureLabel}</span>
+        <select data-architecture-select></select>
+      </label>
+      <label>
+        <span>{copy.packageLabel}</span>
+        <select data-package-select></select>
+      </label>
+      <a class="button secondary" href={releasesUrl} data-selected-download>{copy.downloadSelected}</a>
+    </form>
+    <p class="download-status" data-selection-status aria-live="polite"></p>
+  </div>
+</section>
+
+<script define:vars={{ copy }}>
+  const root = document.querySelector("[data-zmanager-downloads]");
+
+  if (root) {
+    const apiUrl = root.dataset.apiUrl;
+    const releasesUrl = root.dataset.releasesUrl;
+    const config = JSON.parse(root.dataset.downloadConfig || "[]");
+    const osSelect = root.querySelector("[data-os-select]");
+    const architectureSelect = root.querySelector("[data-architecture-select]");
+    const packageSelect = root.querySelector("[data-package-select]");
+    const latestDownload = root.querySelector("[data-latest-download]");
+    const selectedDownload = root.querySelector("[data-selected-download]");
+    const detection = root.querySelector("[data-device-detection]");
+    const status = root.querySelector("[data-download-status]");
+    const selectionStatus = root.querySelector("[data-selection-status]");
+    let assets = [];
+    let deviceSupported = false;
+
+    const nav = navigator;
+    const userAgentData = nav.userAgentData;
+
+    function findOs(platform) {
+      if (/win/.test(platform)) return "windows";
+      if (/mac/.test(platform)) return "macos";
+      if (/linux/.test(platform) && !/android/.test(platform)) return "linux";
+      return null;
+    }
+
+    function findArchitecture(hints) {
+      const value = [hints.architecture, hints.platform, nav.platform, nav.userAgent]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return /arm|aarch64/.test(value) ? "arm64" : "x64";
+    }
+
+    function selectedArchitecture() {
+      const os = config.find((item) => item.os === osSelect.value) || config[0];
+      return os.architectures.find((item) => item.id === architectureSelect.value) || os.architectures[0];
+    }
+
+    function selectedPackage() {
+      const architecture = selectedArchitecture();
+      return architecture.packages.find((item) => item.id === packageSelect.value) || architecture.packages[0];
+    }
+
+    function updatePackages() {
+      const architecture = selectedArchitecture();
+      packageSelect.innerHTML = architecture.packages
+        .map((item) => `<option value="${item.id}">${item.label}</option>`)
+        .join("");
+      updateSelectedLink();
+    }
+
+    function updateArchitectures() {
+      const os = config.find((item) => item.os === osSelect.value) || config[0];
+      architectureSelect.innerHTML = os.architectures
+        .map((item) => `<option value="${item.id}">${item.label}</option>`)
+        .join("");
+      updatePackages();
+    }
+
+    function assetFor(packageOption) {
+      if (!packageOption || !assets.length) return null;
+      const pattern = new RegExp(packageOption.pattern);
+      return assets.find((asset) => pattern.test(asset.name)) || null;
+    }
+
+    function updateSelectedLink() {
+      if (!assets.length) {
+        selectedDownload.href = releasesUrl;
+        selectionStatus.textContent = copy.loading;
+        return;
+      }
+      const asset = assetFor(selectedPackage());
+      const href = asset ? asset.browser_download_url : releasesUrl;
+      selectedDownload.href = href;
+      selectionStatus.textContent = asset ? asset.name : copy.noAsset;
+    }
+
+    function updateLatestLink() {
+      const asset = deviceSupported ? assetFor(selectedPackage()) : null;
+      latestDownload.href = asset ? asset.browser_download_url : releasesUrl;
+    }
+
+    async function detectDevice() {
+      const hints = {
+        platform: userAgentData?.platform || nav.platform || nav.userAgent,
+        architecture: "",
+      };
+
+      if (userAgentData?.getHighEntropyValues) {
+        try {
+          Object.assign(hints, await userAgentData.getHighEntropyValues(["architecture", "platform"]));
+        } catch {
+          // Fall back to the lower-entropy browser hints below.
+        }
+      }
+
+      const os = findOs(hints.platform.toLowerCase());
+      const architecture = findArchitecture(hints);
+      if (os) {
+        deviceSupported = true;
+        osSelect.value = os;
+        updateArchitectures();
+        architectureSelect.value = architecture;
+        updatePackages();
+        detection.textContent = `${copy.detected}: ${config.find((item) => item.os === os).osLabel} · ${architecture}`;
+        updateLatestLink();
+      } else {
+        detection.textContent = `${copy.detected}: ${hints.platform || "Unknown platform"}`;
+      }
+    }
+
+    async function loadRelease() {
+      try {
+        const response = await fetch(apiUrl, { headers: { Accept: "application/vnd.github+json" } });
+        if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
+        const release = await response.json();
+        assets = release.assets || [];
+        updateSelectedLink();
+        updateLatestLink();
+        status.textContent = release.tag_name ? `${copy.releaseLoaded}: ${release.tag_name}` : "";
+      } catch {
+        status.textContent = copy.error;
+      }
+    }
+
+    osSelect.addEventListener("change", updateArchitectures);
+    architectureSelect.addEventListener("change", updatePackages);
+    packageSelect.addEventListener("change", updateSelectedLink);
+    updateArchitectures();
+    detectDevice();
+    loadRelease();
+  }
+</script>
